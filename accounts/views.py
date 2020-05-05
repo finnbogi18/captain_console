@@ -1,3 +1,4 @@
+from accounts.models import Profile
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
 
@@ -20,5 +21,9 @@ def register(request):
     })
 
 def profile(request):
-    profile = Profile.object.filter()
-    return render(request, 'accounts/profile.html')
+    profile = Profile.object.filter(user=request.user).first()
+    if request.method == 'POST':
+
+    return render(request, 'accounts/profile.html', {
+        'form': ''
+    })
