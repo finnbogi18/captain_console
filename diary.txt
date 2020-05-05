@@ -1,35 +1,35 @@
 27 APR.
-- Atli: 
+- Atli: started working on interviews and user groups
 - Finnbogi: Started work on the wireframe.
 - Gísli: Started work on the requirement list.
 - Hákon: 
 
 28 APR.
-- Atli: 
+- Atli: finished preparing interviews and started writing explenations for all the chapters
 - Finnbogi: Finished up the wireframe making it ready for user testing.
 - Gísli: Finished the requirement list and helped with the user groups.
 - Hákon: 
 
 29 APR.
-- Atli: 
+- Atli: took interviews and finished off the report
 - Finnbogi: Took an interview and updated the wireframe according to the feedback recieved.
 - Gísli: Set up the framework for the design report.
 - Hákon: 
 
 30 APR.
-- Atli: 
+- Atli: made state diagrams, prepared interviews
 - Finnbogi: 
 - Gísli: Made the navigation diagram
 - Hákon: 
 
 01 MAY.
-- Atli: 
+- Atli: took interviews and finished off the report
 - Finnbogi: Took an interview and worked on the design report.
 - Gísli: Took an interview
 - Hákon: 
 
 04 MAY.
-- Atli: 
+- Atli:
 - Finnbogi: 
 - Gísli: 
 - Hákon: 
