@@ -20,4 +20,5 @@ def register(request):
     })
 
 def profile(request):
+    profile = Profile.object.filter()
     return render(request, 'accounts/profile.html')
