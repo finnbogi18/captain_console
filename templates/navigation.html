@@ -22,11 +22,15 @@
             <li class="nav-item">
                 <img class="mr-3 ml-3" id="icon-cart" src="/static/images/svg/cart.svg" alt="icon name">
             </li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'accounts-logout' %}">Logout</a></li>
+            {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'accounts-login' %}">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'accounts-register' %}">Sign up</a>
+            {% endif %}
             </li>
         </ul>
     </div>
