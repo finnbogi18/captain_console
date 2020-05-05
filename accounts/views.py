@@ -14,7 +14,10 @@ def register(request):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('accounts-login')
     return render(request, 'accounts/register.html', {
         'form': UserCreationForm()
     })
+
+def profile(request):
+    return render(request, 'accounts/profile.html')
