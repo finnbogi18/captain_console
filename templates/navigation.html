@@ -23,7 +23,7 @@
                 <img class="mr-3 ml-3" id="icon-cart" src="/static/images/svg/cart.svg" alt="icon name">
             </li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'accounts-logout' %}">Logout</a></li>
+                <li><a class="nav-link" href="{% url 'accounts-profile' %}">Profile</a></li>
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'accounts-login' %}">Login</a>
