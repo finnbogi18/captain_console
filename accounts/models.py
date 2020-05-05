@@ -23,5 +23,5 @@ class Account(models.Model):
 
 class SearchHistory(models.Model):
     search = models.CharField(max_length=999)
-    account_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    account_id = models.ForeignKey(Account, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now=True)
