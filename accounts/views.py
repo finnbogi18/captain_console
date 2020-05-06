@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from accounts.forms.profile_form import ProfileForm
 
 # Create your views here.
+from products.models import Product
+
 
 def index(request):
     return render(request, 'accounts/index.html')
@@ -35,4 +37,5 @@ def edit(request):
     })
 
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    context = {'accounts': Profile.objects.all() }
+    return render(request, 'accounts/profile.html', context)
