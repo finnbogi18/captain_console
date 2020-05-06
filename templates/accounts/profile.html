@@ -22,15 +22,13 @@
                         Last name: {{ user.profile.last_name }} <br>
                         email: {{ user.profile.email }} <br>
                         phone_number: {{ user.profile.phone_number }}
-
-
                     </div>
                 </div>
                 <div class="row profile2-row">
                     <div class="col profile-column">SEARCH HISTORY</div>
                 </div>
                 <div class="row profile3-row">
-                    <div class="col profile-column">{{ user.search }} <br></div>
+                    <div class="col profile-column">{{ user.searchhistory_set.all }} <br></div>
                 </div>
             </div>
         </div>
