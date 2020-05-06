@@ -37,5 +37,6 @@ def edit(request):
     })
 
 def profile(request):
-    context = {'accounts': Profile.objects.all() }
+    context = {'accounts': Profile.objects.all(),
+               'search': user.searchhistory_set.filter(user=request.user).all()}
     return render(request, 'accounts/profile.html', context)
