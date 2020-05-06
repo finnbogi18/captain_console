@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Profile</h2>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary mt-2" value="Update"/>
-    </form>
+    <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>
 {% endblock %}
