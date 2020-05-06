@@ -20,6 +20,7 @@
     padding: 0px;
 }
 
+
 @keyframes line-under {
     0% {
         background-size: 0px 3px;
@@ -60,12 +61,10 @@
 
 .products .product {
     border-radius: 0;
-    margin: 10px;
-    padding: 10px;
+    margin: 0;
     background-image: none;
     background-color: white;
     text-align: center;
-
 }
 
 .products .product:hover {
@@ -83,12 +82,26 @@
     max-height: 200px;
     margin: 0 auto;
 }
+
+.product-img-box {
+    height: 200px;
+    width: 200px;
+
+}
 .big_profile {
     width: 200px;
+    height: 200px;
+}
+
+.profile-row {
     height: 300px;
 }
 
-.product-img-box {
-    width: 200px;
-    height: 200px;
+.profile2-row {
+    border-bottom: 2px solid black;
+    height: 25px;
+}
+
+.profile3-row {
+    height: 130px;
 }

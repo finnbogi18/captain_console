@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+
 from accounts.models import Profile
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -37,5 +39,6 @@ def edit(request):
     })
 
 def profile(request):
-    context = {'accounts': Profile.objects.all() }
+    context = {'accounts': Profile.objects.all(),
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
     return render(request, 'accounts/profile.html', context)

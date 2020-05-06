@@ -4,8 +4,42 @@
 {% endblock %}
 {% block content %}
     <h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s profile</h2>
-    <img src="{{ user.profile.profile_image }}" class="big_profile rounded-circle"
-    onerror="this.onerror=null;this.src='/static/images/svg/person.svg';">
+    <div class="container profile-container">
+        <div class="row profile-row">
+            <div class="col-3 profile-column">
+                <img src="{{ user.profile.profile_image }}" class="big_profile rounded-circle"
+                onerror="this.onerror=null;this.src='/static/images/svg/person.svg';">
+            </div>
+            <div class="col-9 profile-column">
+                <div class="row profile2-row">
+                    <div class="col profile-column">NAFN</div>
+                </div>
+                <div class="row profile3-row">
+                    <div class="col profile-column">
+                        userid: {{ User.}} <br>
+                        profileid: {{ user.profile.id }} <br>
+                        First name: {{ user.profile.first_name }} <br>
+                        Last name: {{ user.profile.last_name }} <br>
+                        email: {{ user.profile.email }} <br>
+                        phone_number: {{ user.profile.phone_number }}
+                    </div>
+                </div>
+                <div class="row profile2-row">
+                    <div class="col profile-column">SEARCH HISTORY</div>
+                </div>
+                <div class="row profile3-row">
+                    <div class="col profile-column">
+                        {% for search in searches %}
+                              {{ search.search }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>
+    {% for profile in profiles %}
+      <h1>{{profile.searchhistory_set.all}}</h1>
+    {% endfor %}
 {% endblock %}
