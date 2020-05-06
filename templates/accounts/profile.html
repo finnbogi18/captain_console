@@ -16,7 +16,7 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
-                        userid: {{ user.profile.user_id }} <br>
+                        userid: {{ User.}} <br>
                         profileid: {{ user.profile.id }} <br>
                         First name: {{ user.profile.first_name }} <br>
                         Last name: {{ user.profile.last_name }} <br>
@@ -28,11 +28,18 @@
                     <div class="col profile-column">SEARCH HISTORY</div>
                 </div>
                 <div class="row profile3-row">
-                    <div class="col profile-column">{{ user.searchhistory_set.all }} <br></div>
+                    <div class="col profile-column">
+                        {% for search in searches %}
+                              {{ search.search }}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>
+    {% for profile in profiles %}
+      <h1>{{profile.searchhistory_set.all}}</h1>
+    {% endfor %}
 {% endblock %}
