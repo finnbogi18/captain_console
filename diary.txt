@@ -31,19 +31,19 @@
 04 MAY.
 - Atli:
 - Finnbogi: 
-- Gísli: 
+- Gísli: Started working on creating the apps and adding basic paths
 - Hákon: 
 
 05 MAY.
 - Atli: 
 - Finnbogi: 
-- Gísli: 
+- Gísli: Started working on the profile and login pages
 - Hákon: 
 
 06 MAY.
 - Atli: 
 - Finnbogi: 
-- Gísli: 
+- Gísli: Continued working on the profile page and added a basic view of the search history
 - Hákon: 
 
 07 MAY.
