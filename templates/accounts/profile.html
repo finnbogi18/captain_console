@@ -16,10 +16,13 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
+                        userid: {{ user.profile.user_id }} <br>
+                        profileid: {{ user.profile.id }} <br>
                         First name: {{ user.profile.first_name }} <br>
                         Last name: {{ user.profile.last_name }} <br>
                         email: {{ user.profile.email }} <br>
                         phone_number: {{ user.profile.phone_number }}
+
 
                     </div>
                 </div>
@@ -27,7 +30,7 @@
                     <div class="col profile-column">SEARCH HISTORY</div>
                 </div>
                 <div class="row profile3-row">
-                    <div class="col profile-column">listilisti</div>
+                    <div class="col profile-column">{{ user.search }} <br></div>
                 </div>
             </div>
         </div>
