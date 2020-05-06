@@ -20,17 +20,6 @@
     padding: 0px;
 }
 
-a {
-    color: #F6E8EA !important;
-}
-
-a:hover {
-    background-image: linear-gradient(white, white);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    animation: line-under .5s 1 both;
-}
-
 @keyframes line-under {
     0% {
         background-size: 0px 3px;
@@ -71,10 +60,12 @@ a:hover {
 
 .products .product {
     border-radius: 0;
-    margin: 0;
+    margin: 10px;
+    padding: 10px;
     background-image: none;
-    background-color: gray;
+    background-color: white;
     text-align: center;
+
 }
 
 .products .product:hover {
@@ -86,12 +77,11 @@ a:hover {
     cursor: pointer;
 }
 
-.products .product:hover .product-img {
-    transform: perspective(400px) scale(1.1) rotateY(15deg);
-}
 
 .product-img{
     width: 200px;
+    height: 200px;
+    margin: 50px;
     transition: transform 1s ease-in;
 }
 .big_profile {
