@@ -16,12 +16,11 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
-                        userid: {{ User.}} <br>
-                        profileid: {{ user.profile.id }} <br>
                         First name: {{ user.profile.first_name }} <br>
                         Last name: {{ user.profile.last_name }} <br>
                         email: {{ user.profile.email }} <br>
-                        phone_number: {{ user.profile.phone_number }}
+                        phone_number: {{ user.profile.phone_number }} <br>
+                        <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
                     </div>
                 </div>
                 <div class="row profile2-row">
@@ -29,15 +28,27 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
-                        {% for search in searches %}
-                              {{ search.search }}
-                        {% endfor %}
+                        <table class="table table-striped profile-table">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Search</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for search in searches %}
+                                    <tr>
+                                        <td>{{ search.search }}</td>
+                                        <td>{{ search.date }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>
     {% for profile in profiles %}
       <h1>{{profile.searchhistory_set.all}}</h1>
