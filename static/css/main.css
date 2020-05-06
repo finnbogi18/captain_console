@@ -98,3 +98,23 @@ a:hover {
     width: 200px;
     height: 300px;
 }
+
+.profile-container {
+
+}
+
+.profile-column {
+
+}
+.profile-row {
+    height: 300px;
+}
+
+.profile2-row {
+    border-bottom: 2px solid black;
+    height: 25px;
+}
+
+.profile3-row {
+    height: 130px;
+}
