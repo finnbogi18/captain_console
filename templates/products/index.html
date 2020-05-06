@@ -6,10 +6,10 @@
     <div>
         <h2>Welcome to the product app!</h2>
     </div>
-    {% for console in consoles %}
-        <h4>{{ console.name }}</h4>
-        <p>{{ console.price }}$</p>
-
+  <div class="products">
+    {% for product in products %}
+      {% include 'products/single_product.html' with product=product %}
     {% endfor %}
+  </div>
 
 {% endblock %}
