@@ -18,7 +18,7 @@
 
 30 APR.
 - Atli: made state diagrams, prepared interviews
-- Finnbogi: 
+- Finnbogi: Finished work on the prototype.
 - Gísli: Made the navigation diagram
 - Hákon: 
 
@@ -30,20 +30,20 @@
 
 04 MAY.
 - Atli:
-- Finnbogi: 
-- Gísli: 
+- Finnbogi: Started working on setting up the github for the project and the django project.
+- Gísli: Started working on creating the apps and adding basic paths
 - Hákon: 
 
 05 MAY.
 - Atli: 
-- Finnbogi: 
-- Gísli: 
+- Finnbogi: Worked on the home page and implementing some basics views and navigation for the app.
+- Gísli: Started working on the profile and login pages
 - Hákon: 
 
 06 MAY.
 - Atli: 
-- Finnbogi: 
-- Gísli: 
+- Finnbogi: Did some work on the basics of the app, linking stuff together in the navigation bar and added a footer.
+- Gísli: Continued working on the profile page and added a basic view of the search history
 - Hákon: 
 
 07 MAY.
