@@ -13,11 +13,5 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="Captain Console" uuid="fd052b97-729c-4799-9b94-e8adf6e6ff00">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>postgres://kwpvdxuq:cuhXnH...@balarama.db.elephantsql.com:5432/kwpvdxuq</jdbc-url>
-    </data-source>
   </component>
 </project>
