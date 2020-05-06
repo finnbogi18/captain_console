@@ -3,7 +3,7 @@
     <h2>Profile</h2>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
-        {% form %}
+        {{ form }}
         <input type="submit" class="btn btn-primary" value="Update"/>
     </form>
     <a class="nav-link" href="{% url 'accounts-logout' %}">Logout</a>

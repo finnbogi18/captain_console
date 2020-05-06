@@ -1,6 +1,7 @@
 from accounts.models import Profile
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
+from accounts.forms.profile_form import ProfileForm
 
 # Create your views here.
 
@@ -21,9 +22,14 @@ def register(request):
     })
 
 def profile(request):
-    profile = Profile.object.filter(user=request.user).first()
+    profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
-
+        form = ProfileForm(instance=profile, data=request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('accounts-profile')
     return render(request, 'accounts/profile.html', {
-        'form': ''
+    'form': ProfileForm(instance=profile)
     })
