@@ -9,7 +9,13 @@ class Profile(models.Model):
     email = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
 
-"""class SearchHistory(models.Model):
+    def __str__(self):
+        return self.name
+
+class SearchHistory(models.Model):
     search = models.CharField(max_length=999)
-    account_id = models.ForeignKey(Account, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now=True)"""
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
