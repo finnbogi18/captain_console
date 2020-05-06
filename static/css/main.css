@@ -92,7 +92,8 @@ a:hover {
 
 .product-img{
     width: 200px;
-    transition: transform 1s ease-in;
+    max-height: 200px;
+    margin: 0 auto;
 }
 .big_profile {
     width: 200px;
