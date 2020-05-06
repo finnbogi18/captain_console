@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
     <h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s profile</h2>
-    <img src="{{ user.profile.profile_image }}" id="icon-cart"
+    <img src="{{ user.profile.profile_image }}" class="big_profile rounded-circle"
     onerror="this.onerror=null;this.src='/static/images/svg/person.svg';">
     <a class="btn btn-primary mt-2" href="{% url 'accounts-edit' %}">Edit profile</a>
     <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>

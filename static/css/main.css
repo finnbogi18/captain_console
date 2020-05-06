@@ -94,3 +94,7 @@ a:hover {
     width: 200px;
     transition: transform 1s ease-in;
 }
+.big_profile {
+    width: 200px;
+    height: 300px;
+}
