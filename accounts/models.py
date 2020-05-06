@@ -14,7 +14,7 @@ class Profile(models.Model):
 
 class SearchHistory(models.Model):
     search = models.CharField(max_length=999)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
