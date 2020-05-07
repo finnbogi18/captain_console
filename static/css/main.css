@@ -114,3 +114,15 @@
     margin-bottom: 20px;
     color: #ffff;
 }
+
+#search-table {
+    padding-bottom: 50px;
+}
+
+#profile-personal-info {
+    padding-top: 10px;
+}
+
+#see-all {
+    padding: 15px;
+}

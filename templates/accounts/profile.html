@@ -12,16 +12,16 @@
                     onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
 
                 </div>
-                <div class="row-justify-content-center">
-                    <div class="col align-self-center"><a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a></div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-primary mt-2" href="{% url 'accounts-logout' %}">Logout</a>
                 </div>
 
             </div>
             <div class="col-9 profile-column">
                 <div class="row profile2-row">
-                    <div class="col profile-column">NAFN</div>
+                    <div class="col profile-column">PERSONAL INFORMATION</div>
                 </div>
-                <div class="row profile3-row">
+                <div class="row profile3-row" id="profile-personal-info">
                     <div class="col profile-column">
                         First name: {{ user.profile.first_name }} <br>
                         Last name: {{ user.profile.last_name }} <br>
@@ -55,7 +55,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="row align-right">see all</div>
+                <div class="row justify-content-end">
+                    <a id="see-all" href="{% url 'accounts-searchhistory' %}">See all</a>
+                </div>
             </div>
         </div>
     </div>

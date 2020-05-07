@@ -58,3 +58,8 @@ def add_history(request):
     return render(request, 'accounts/history.html',{
         'form': form
     })
+
+def search_history(request):
+    context = {'accounts': Profile.objects.all(),
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
+    return render(request, 'accounts/searchhistory.html',context)
