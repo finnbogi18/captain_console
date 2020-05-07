@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 
-from accounts.models import Profile
+from accounts.models import Profile, SearchHistory
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
 from accounts.forms.profile_form import ProfileForm
+from accounts.forms.search_form import SearchForm
 
 # Create your views here.
 from products.models import Product
@@ -42,3 +43,18 @@ def profile(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
     return render(request, 'accounts/profile.html', context)
+
+def add_history(request):
+    profile = SearchHistory.objects.filter(user=request.user).first().user_id
+    if request.method == 'POST':
+        form = SearchForm(data=request.POST)
+        if form.is_valid():
+            search = form.save(commit=False)
+            search.user = request.user
+            search.save()
+            return redirect('accounts-profile')
+    else:
+        form = SearchForm()
+    return render(request, 'accounts/history.html',{
+        'form': form
+    })
