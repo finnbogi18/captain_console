@@ -25,4 +25,4 @@ def add_to_cart(request, id):
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, order_date=ordered_date)
         order.items.add(order_item)
-    return redirect('products-index')
+    return redirect('home-index')
