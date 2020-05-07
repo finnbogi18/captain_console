@@ -55,6 +55,6 @@ def add_history(request):
             return redirect('accounts-profile')
     else:
         form = SearchForm()
-    return render(request, 'accounts/history.html',{
+    return render(request, 'base.html',{
         'form': form
     })
