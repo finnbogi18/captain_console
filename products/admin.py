@@ -1,5 +1,5 @@
 from django.contrib import admin
-from products.models import Product, ProductCategory, ProductImage
+from products.models import Product, ProductCategory, ProductImage, Manufacturer
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -21,3 +21,10 @@ class ProductImageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ProductImage)
+
+
+class ProductManufacturerAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Manufacturer)

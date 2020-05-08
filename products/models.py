@@ -9,19 +9,35 @@ class ProductCategory(models.Model):
         return self.name
 
 
+class Manufacturer(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=999, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=999, blank=True)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     price = models.FloatField()
     on_sale = models.BooleanField()
-    manufacturer = models.CharField(max_length=255)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     slug = models.SlugField()
 
     def __str__(self):
         return self.name
 
+    def get_add_to_cart_url(self):
+        return reverse('add-to-cart', kwargs={
+            'slug': self.slug
+        })
 
+    def get_remove_one_cart(self):
+        return reverse('remove-one-cart', kwargs={
+            'slug': self.slug
+        })
 
 
 class ProductImage(models.Model):
