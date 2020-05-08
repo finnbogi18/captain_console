@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-
+from django.core.paginator import Paginator
 from accounts.models import Profile, SearchHistory
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -46,5 +46,7 @@ def profile(request):
 
 def search_history(request):
     context = {'accounts': Profile.objects.all(),
-               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
-    return render(request, 'accounts/searchhistory.html',context)
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),
+               'paginator': Paginator(User.objects.get(id=request.user.id).searchhistory_set.all(), 5)}
+
+    return render(request, 'accounts/searchhistory.html', context)
