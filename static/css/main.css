@@ -8,11 +8,7 @@
   background-size: cover;
   background-image: url("/static/images/cpt_console.png");
   min-height: 100%;
-}
-
-.test-1 {
-    height: 1000px;
-    width: 1000px;
+  height: 1000px;
 }
 
 .footer p {
