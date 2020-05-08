@@ -45,7 +45,6 @@ def profile(request):
     return render(request, 'accounts/profile.html', context)
 
 def add_history(request):
-    profile = SearchHistory.objects.filter(user=request.user).first().user_id
     if request.method == 'POST':
         form = SearchForm(data=request.POST)
         if form.is_valid():
