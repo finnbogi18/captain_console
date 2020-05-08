@@ -22,3 +22,9 @@ class SearchHistory(models.Model):
 
     def __str__(self):
         return self.search
+
+def add_history(search,user):
+    history = SearchHistory()
+    history.search = search
+    history.user = user
+    history.save()

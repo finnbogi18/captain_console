@@ -1,10 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from django.core.paginator import Paginator
 from accounts.models import Profile, SearchHistory
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
 from accounts.forms.profile_form import ProfileForm
-from accounts.forms.search_form import SearchForm
 
 # Create your views here.
 from products.models import Product
@@ -25,7 +25,7 @@ def register(request):
     return render(request, 'accounts/register.html', {
         'form': UserCreationForm()
     })
-
+@login_required
 def edit(request):
     profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -38,28 +38,16 @@ def edit(request):
     return render(request, 'accounts/edit.html', {
     'form': ProfileForm(instance=profile)
     })
-
+@login_required
 def profile(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
     return render(request, 'accounts/profile.html', context)
 
-def add_history(request):
-    profile = SearchHistory.objects.filter(user=request.user).first().user_id
-    if request.method == 'POST':
-        form = SearchForm(data=request.POST)
-        if form.is_valid():
-            search = form.save(commit=False)
-            search.user = request.user
-            search.save()
-            return redirect('accounts-profile')
-    else:
-        form = SearchForm()
-    return render(request, 'base.html',{
-        'form': form
-    })
-
+@login_required
 def search_history(request):
     context = {'accounts': Profile.objects.all(),
-               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
-    return render(request, 'accounts/searchhistory.html',context)
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),
+               'paginator': Paginator(User.objects.get(id=request.user.id).searchhistory_set.all(), 5)}
+
+    return render(request, 'accounts/searchhistory.html', context)

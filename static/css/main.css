@@ -20,6 +20,9 @@
     padding: 0px;
 }
 
+.flex-shrink-0 {
+    padding-bottom: 70px;
+}
 
 @keyframes line-under {
     0% {
@@ -116,14 +119,12 @@
     color: #ffff;
 }
 
-#search-table {
-    padding-bottom: 50px;
-}
 
 #profile-personal-info {
     padding-top: 10px;
 }
 
 #see-all {
-    padding: 15px;
+    padding-top: 10px;
+    padding-right: 15px;
 }

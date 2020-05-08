@@ -50,7 +50,7 @@
 - Atli: 
 - Finnbogi: 
 - Gísli: 
-- Hákon: 
+- Hákon: Created a better search engine than google
 
 08 MAY.
 - Atli: 

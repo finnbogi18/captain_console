@@ -4,8 +4,8 @@
     <div class="container profile-container">
         <div class="row profile-row">
             <div class="col-3 profile-column">
-                <div class="row justify-content-center">
-                    <div class="col align-content-center"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
+                <div class="row text-center">
+                    <div class="col"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
                     onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
 
                 </div>
@@ -22,7 +22,7 @@
                     <div class="col profile-column">SEARCH HISTORY</div>
                 </div>
                 <div class="row profile3-row">
-                    <div class="col profile-column" id="search-table">
+                    <div class="col profile-column">
                         <table class="table table-striped profile-table">
                             <thead class="thead">
                                 <tr>
@@ -31,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for search in searches %}
+                                {% for search in paginator.object_list reversed %}
                                     <tr>
                                         <td>{{ search.search }}</td>
                                         <td>{{ search.date }}</td>
