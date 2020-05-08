@@ -55,6 +55,11 @@ def add_history(request):
             return redirect('accounts-profile')
     else:
         form = SearchForm()
-    return render(request, 'accounts/history.html',{
+    return render(request, 'base.html',{
         'form': form
     })
+
+def search_history(request):
+    context = {'accounts': Profile.objects.all(),
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
+    return render(request, 'accounts/searchhistory.html',context)

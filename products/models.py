@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class ProductCategory(models.Model):
@@ -15,9 +16,12 @@ class Product(models.Model):
     price = models.FloatField()
     on_sale = models.BooleanField()
     manufacturer = models.CharField(max_length=255)
+    slug = models.SlugField()
 
     def __str__(self):
         return self.name
+
+
 
 
 class ProductImage(models.Model):
@@ -27,4 +31,3 @@ class ProductImage(models.Model):
     def __str__(self):
         return self.image
 
-    # TODO: ADD MORE MODELS.
