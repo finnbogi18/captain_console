@@ -11,34 +11,9 @@
       <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search"
              name="product-search"/>
       <span class="input-group-append">
-                    <div class="input-group-text bg-transparent">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </span>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </span>
     </div>
-  <div class="row d-flex justify-content-around">
-    <div class="form-group col-md-3">
-      <label for="category">Category</label>
-      <select id="category" class="form-control" name="category">
-        <option selected>Choose...</option>
-        {% for cat in categories %}
-        <option value="{{ cat }}">{{ cat }}</option>
-        {% endfor %}
-      </select>
-       </div>
-        <div class="form-group col-md-3">
-      <label for="manufacturer">Manufacturer</label>
-      <select id="manufacturer" class="form-control" name="manufacturer">
-        <option selected>Choose...</option>
-        {% for man in manufacturers %}
-        <option value="{{ man }}">{{ man }}</option>
-        {% endfor %}
-      </select>
-
-    </div>
-
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
   <div class="products">
