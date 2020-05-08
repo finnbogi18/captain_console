@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <h1>{{ product.name }}</h1>
-  <p>{{ product.description }}</p>
-  <p>${{ product.price }}</p>
-  <p>Manufacturer: {{ product.manufacturer }}</p>
-  {% for product_image in product.productimage_set.all %}
-    <img src="{{ product_image.image }}" class="product-img" />
-  {% endfor %}
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <p>${{ product.price }}</p>
+    <p>Manufacturer: {{ product.manufacturer }}</p>
+    {% for product_image in product.productimage_set.all %}
+        <img src="{{ product_image.image }}" class="product-img"/>
+    {% endfor %}
+    <a href="/products/cart/{{ product.id }}" class="btn btn-warning">Add to Cart</a>
 {% endblock %}

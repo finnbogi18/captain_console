@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile', views.profile, name='accounts-profile'),
     path('profile/edit', views.edit, name='accounts-edit'),
     path('profile/history', views.add_history, name='accounts-history'),
+    path('profile/searchhistory', views.search_history, name='accounts-searchhistory'),
 ]

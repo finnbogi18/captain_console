@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br><h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s Search History</h2> <br>
+    <div class="container profile-container">
+        <div class="row profile-row">
+            <div class="col-3 profile-column">
+                <div class="row justify-content-center">
+                    <div class="col align-content-center"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
+                    onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-primary mt-2" href="{% url 'accounts-profile' %}">Back</a>
+                </div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-primary mt-2" id="profile-back" href="{% url 'accounts-logout' %}">Logout</a>
+                </div>
+
+            </div>
+            <div class="col profile-column">
+                <div class="row profile2-row">
+                    <div class="col profile-column">SEARCH HISTORY</div>
+                </div>
+                <div class="row profile3-row">
+                    <div class="col profile-column" id="search-table">
+                        <table class="table table-striped profile-table">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Search</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for search in searches %}
+                                    <tr>
+                                        <td>{{ search.search }}</td>
+                                        <td>{{ search.date }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
