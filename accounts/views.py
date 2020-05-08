@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from accounts.models import Profile, SearchHistory
@@ -24,7 +25,7 @@ def register(request):
     return render(request, 'accounts/register.html', {
         'form': UserCreationForm()
     })
-
+@login_required
 def edit(request):
     profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -37,13 +38,13 @@ def edit(request):
     return render(request, 'accounts/edit.html', {
     'form': ProfileForm(instance=profile)
     })
-
+@login_required
 def profile(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
     return render(request, 'accounts/profile.html', context)
 
-
+@login_required
 def search_history(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),
