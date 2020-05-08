@@ -7,8 +7,8 @@
     <div class="container profile-container">
         <div class="row profile-row">
             <div class="col-3 profile-column">
-                <div class="row justify-content-center">
-                    <div class="col align-content-center"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
+                <div class="row text-center">
+                    <div class="col"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
                     onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
 
                 </div>
@@ -23,11 +23,11 @@
                 </div>
                 <div class="row profile3-row" id="profile-personal-info">
                     <div class="col profile-column">
-                        First name: {{ user.profile.first_name }} <br>
+                        First name: <bold>{{ user.profile.first_name }}</bold> <br>
                         Last name: {{ user.profile.last_name }} <br>
-                        email: {{ user.profile.email }} <br>
-                        phone_number: {{ user.profile.phone_number }} <br>
-                        <a class="btn btn-primary mt-2 " id="profile-btn" {% url 'accounts-edit' %}>Edit profile</a>
+                        Email: {{ user.profile.email }} <br>
+                        Phone number: {{ user.profile.phone_number }} <br>
+                        <a class="btn btn-primary mt-2 " id="profile-btn" href="{% url 'accounts-edit' %}">Edit profile</a>
                     </div>
                 </div>
                 <div class="row profile2-row">
@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for search in searches %}
+                                {% for search in searches reversed%}
                                     {% if forloop.counter <= 5 %}
                                         <tr>
                                             <td>{{ search.search }}</td>
@@ -55,8 +55,8 @@
                         </table>
                     </div>
                 </div>
-                <div class="row justify-content-end">
-                    <a id="see-all" href="{% url 'accounts-searchhistory' %}">See all</a>
+                <div class="row justify-content-end" id="see-all">
+                    <a href="{% url 'accounts-searchhistory' %}">See all</a>
                 </div>
             </div>
         </div>
