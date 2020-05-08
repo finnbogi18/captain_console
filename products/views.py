@@ -6,7 +6,6 @@ from products.models import Product
 def index(request):
     qs = Product.objects.all()
     product_search = request.GET.get('product-search')
-    print(product_search)
     if product_search != '' and product_search is not None:
         qs = qs.filter(name__icontains=product_search)
     context = {
