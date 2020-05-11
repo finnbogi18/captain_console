@@ -14,6 +14,7 @@ def index(request):
     product_search = request.GET.get('product-search')
     category = request.GET.get('category')
     manufacturer = request.GET.get('manufacturer')
+    order_by = request.GET.get('order-by')
     if is_valid_queryparam(product_search):
         current_user = request.user
         add_history(product_search,current_user)
@@ -24,6 +25,20 @@ def index(request):
 
     if is_valid_queryparam(manufacturer) and manufacturer != 'Choose...':
         qs = qs.filter(manufacturer__name=manufacturer)
+
+    if order_by == 'name-dec':
+        print('name dec')
+        qs = qs.order_by('-name')
+    elif order_by == 'name-ac':
+        print('name ac')
+        qs = qs.order_by('name')
+    elif order_by == 'price-dec':
+        print('price dec')
+        qs = qs.order_by('-price')
+    elif order_by == 'price-ac':
+        print('price ac')
+        qs = qs.order_by('price')
+
 
     context = {
         'queryset': qs,
