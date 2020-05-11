@@ -3,7 +3,8 @@
     <h2>Profile</h2>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ user_form }}
+        {{ profile_form }}
         <input type="submit" class="btn btn-primary mt-2" value="Update"/>
     </form>
 {% endblock %}

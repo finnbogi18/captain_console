@@ -4,45 +4,54 @@ from django.core.paginator import Paginator
 from accounts.models import Profile, SearchHistory
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
-from accounts.forms.profile_form import ProfileForm
+from accounts.forms.profile_form import ProfileForm, UserForm
+from django.contrib.auth import login
 
-# Create your views here.
 from products.models import Product
 
 
 def index(request):
     return render(request, 'accounts/index.html')
 
+
 def login(request):
     return render(request, 'accounts/login.html')
+
 
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Profile.objects.create(user=user)
             return redirect('accounts-login')
     return render(request, 'accounts/register.html', {
         'form': UserCreationForm()
     })
+
+
 @login_required
 def edit(request):
-    profile = Profile.objects.filter(user=request.user).first()
+    user = User.objects.filter(user=request.user).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=profile, data=request.POST)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
+        user_form = UserForm(instance=user, data=request.POST)
+        profile_form = ProfileForm(instance=request.user.profile, data=request.POST)
+        if profile_form.is_valid() and user_form.is_valid():
+            user_temp = user_form.save(commit=False)
+            user_temp.save()
             return redirect('accounts-profile')
     return render(request, 'accounts/edit.html', {
-    'form': ProfileForm(instance=profile)
+        'profile_form': ProfileForm(instance=profile),
+        'user_form': UserForm(instance=user)
     })
+
+
 @login_required
 def profile(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
     return render(request, 'accounts/profile.html', context)
+
 
 @login_required
 def search_history(request):

@@ -3,12 +3,13 @@ from django.db import models
 from django.utils import timezone
 
 
-class Profile(User):
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = models.CharField(max_length=9999, blank=True)
-    phone_number = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return User.first_name
+        return User.username
 
 
 class SearchHistory(models.Model):
@@ -20,8 +21,10 @@ class SearchHistory(models.Model):
         return self.search
 
 
-def add_history(search,user):
+def add_history(search, user):
     history = SearchHistory()
     history.search = search
     history.user = user
     history.save()
+
+
