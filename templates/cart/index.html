@@ -10,17 +10,23 @@
                     <div class="col-3 product-img-box d-flex align-items-center border">
                         <img src="{{ order_item.item.productimage_set.first }}" class="product-img">
                     </div>
-                    <div class="col-3 d-flex align-items-center ml-5">
-                        <p>{{ order_item.quantity }} x of {{ order_item.item.name }}
-                            $ {{ order_item.get_item_total_price|floatformat:2 }}</p>
-                    </div>
-                    <div>
-                        <a href="{{ order_item.item.get_remove_one_cart }}"
-                           class="btn btn-warning">Remove 1 from cart</a>
-                        <a href="{{ order_item.item.get_remove_all_item_cat }}"
-                           class="btn btn-warning">Remove all item from cart</a>
-                        <a href="{{ order_item.item.get_add_to_cart_url }}"
-                           class="btn btn-warning">Add 1 item to cart</a>
+                    <div class="col-6 d-flex align-items-start ml-5">
+                        <div class="row profile2-row">
+                            <div class="col">
+                                {{ order_item.quantity }} x of {{ order_item.item.name }}
+                                $ {{ order_item.get_item_total_price|floatformat:2 }}
+                            </div>
+                        </div>
+                        <div class="row profile2-row">
+                            <div class="col">
+                                <a href="{{ order_item.item.get_remove_one_cart }}"
+                                   class="btn btn-warning">Remove 1 from cart</a>
+                                <a href="{{ order_item.item.get_remove_all_item_cat }}"
+                                   class="btn btn-warning">Remove all item from cart</a>
+                                <a href="{{ order_item.item.get_add_to_cart_url }}"
+                                   class="btn btn-warning">Add 1 item to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
