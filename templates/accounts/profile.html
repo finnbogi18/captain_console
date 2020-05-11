@@ -3,7 +3,7 @@
 <title>Profile</title>
 {% endblock %}
 {% block content %}
-    <br><h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s profile</h2> <br>
+    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
     <div class="container profile-container">
         <div class="row profile-row">
             <div class="col-3 profile-column">
@@ -23,9 +23,9 @@
                 </div>
                 <div class="row profile3-row" id="profile-personal-info">
                     <div class="col profile-column">
-                        First name: <bold>{{ user.profile.first_name }}</bold> <br>
-                        Last name: {{ user.profile.last_name }} <br>
-                        Email: {{ user.profile.email }} <br>
+                        First name: <bold>{{ user.first_name }}</bold> <br>
+                        Last name: {{ user.last_name }} <br>
+                        Email: {{ user.email }} <br>
                         Phone number: {{ user.profile.phone_number }} <br>
                         <a class="btn btn-primary mt-2 " id="profile-btn" href="{% url 'accounts-edit' %}">Edit profile</a>
                     </div>
