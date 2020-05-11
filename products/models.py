@@ -46,6 +46,11 @@ class Product(models.Model):
             'slug': self.slug
         })
 
+    def get_remove_all_item_cat(self):
+        return reverse('remove-all-item-cart', kwargs={
+            'slug': self.slug
+        })
+
 
 class ProductImage(models.Model):
     image = models.CharField(max_length=999)
