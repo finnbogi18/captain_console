@@ -1,17 +1,26 @@
 from django.forms import ModelForm, widgets
 
 from accounts.models import Profile
+from django.contrib.auth.models import User
+
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'email'
+        )
 
 
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = ['id', 'user']
-        widgets = {
-            'first_name': widgets.TextInput(attrs={'class':'form-control'}),
-            'last_name': widgets.TextInput(attrs={'class': 'form-control'}),
-            'email': widgets.TextInput(attrs={'class': 'form-control'}),
-            'phone_number': widgets.TextInput(attrs={'class': 'form-control'}),
-            'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
-        }
+        fields = (
+            'profile_image',
+            'phone_number'
+        )
+
+
 

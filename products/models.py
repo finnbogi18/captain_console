@@ -8,6 +8,7 @@ class ProductCategory(models.Model):
     def __str__(self):
         return self.name
 
+
 class Manufacturer(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=999)
