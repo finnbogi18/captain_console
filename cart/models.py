@@ -33,3 +33,17 @@ class Order(models.Model):
             total += item.get_item_total_price()
 
         return total
+
+
+class OrderContactInfo(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    street_name = models.CharField(max_length=255)
+    house_number = models.CharField(max_length=10)
+    city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    postal_code = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"Order id: {self.order}, Owner: {self.first_name} {self.last_name}"
