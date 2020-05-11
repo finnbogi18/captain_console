@@ -32,18 +32,24 @@ def register(request):
 
 @login_required
 def edit(request):
-    user = User.objects.filter(user=request.user).first()
+    user = User.objects.filter(id=request.user.id).first()
+    profile = Profile.objects.filter(user=user).first()
+    context = {
+        'profile_form': ProfileForm(instance=profile),
+        'user_form': UserForm(instance=user)
+    }
+
+
     if request.method == 'POST':
         user_form = UserForm(instance=user, data=request.POST)
         profile_form = ProfileForm(instance=request.user.profile, data=request.POST)
         if profile_form.is_valid() and user_form.is_valid():
             user_temp = user_form.save(commit=False)
+            profile_temp = profile_form.save(commit=False)
+            profile_temp.save()
             user_temp.save()
             return redirect('accounts-profile')
-    return render(request, 'accounts/edit.html', {
-        'profile_form': ProfileForm(instance=profile),
-        'user_form': UserForm(instance=user)
-    })
+    return render(request, 'accounts/edit.html', context)
 
 
 @login_required
