@@ -68,26 +68,24 @@
 }
 
 .products .product:hover {
-    background-image: linear-gradient(#c500E2, #9a27f7), linear-gradient(#6564FF, #2a96fa), linear-gradient(#2ff89f, #68ff6b), linear-gradient(#f82d97, #e82f65);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
     background-repeat: no-repeat;
-    background-position: left top, right top, right bottom, left bottom;
-    background-size: 0 3px, 3px 0, 0 3px, 3px 0;
-    animation: circle-around .5s ease-in both;
+    transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
 }
 
 
 .product-img{
-    width: 200px;
+    max-width: 200px;
     max-height: 200px;
     margin: 0 auto;
 }
 
 .product-img-box {
     height: 200px;
-    width: 200px;
-
 }
+
 .big_profile {
     width: 100%;
     max-width: 200px;
