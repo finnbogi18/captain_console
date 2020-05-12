@@ -32,7 +32,6 @@ def register(request):
 
 @login_required
 def edit(request):
-    SearchHistory.objects.filter(user=request.user).delete()
     user = User.objects.filter(id=request.user.id).first()
     profile = Profile.objects.filter(user=user).first()
     context = {
@@ -69,4 +68,5 @@ def search_history(request):
 @login_required
 def clear_search(request):
     SearchHistory.objects.filter(user=request.user).delete()
+    print("holymoly")
     return redirect ('accounts-searchhistory')
