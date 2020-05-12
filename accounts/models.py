@@ -9,7 +9,7 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return User.username
+        return self.user.username
 
 
 class SearchHistory(models.Model):

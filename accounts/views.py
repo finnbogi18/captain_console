@@ -68,5 +68,4 @@ def search_history(request):
 @login_required
 def clear_search(request):
     SearchHistory.objects.filter(user=request.user).delete()
-    print("holymoly")
-    return redirect ('accounts-searchhistory')
+    return redirect ('accounts-profile')
