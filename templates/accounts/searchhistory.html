@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <br><h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s Search History</h2> <br>
+    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
     <div class="container profile-container">
         <div class="row profile-row">
             <div class="col-3 profile-column">
@@ -20,6 +20,7 @@
             <div class="col profile-column">
                 <div class="row profile2-row">
                     <div class="col profile-column">SEARCH HISTORY</div>
+                    <div class="col align-self-end"><a href="{{ SearchHistory.clear_search }}">clear search</a></div>
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
@@ -31,11 +32,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for search in paginator.object_list reversed %}
-                                    <tr>
-                                        <td>{{ search.search }}</td>
-                                        <td>{{ search.date }}</td>
-                                    </tr>
+                                {% for search in searches %}
+                                    {% if forloop.counter <= 20 %}
+                                        <tr>
+                                            <td><a href="{% url 'product-index' %}?product-search={{ search.search }}">
+                                            {{ search.search }}</a></td>
+                                            <td>{{ search.date }}</td>
+                                        </tr>
+                                    {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>
