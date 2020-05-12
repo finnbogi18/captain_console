@@ -20,7 +20,6 @@
             <div class="col profile-column">
                 <div class="row profile2-row">
                     <div class="col profile-column">SEARCH HISTORY</div>
-                    <div class="col align-self-end"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
                 </div>
                 <div class="row profile3-row">
                     <div class="col profile-column">
@@ -44,6 +43,10 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="row justify-content-between" id="see-all">
+                    <div class="col-2"></div>
+                    <div class="col-2 align-self-end"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
                 </div>
             </div>
         </div>
