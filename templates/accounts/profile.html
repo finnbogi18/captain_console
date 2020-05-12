@@ -33,7 +33,8 @@
                 <div class="row profile2-row">
                     <div class="col profile-column">SEARCH HISTORY</div>
                 </div>
-                <div class="row profile3-row">
+                {% if searches.count > 0 %}
+                     <div class="row profile3-row">
                     <div class="col profile-column">
                         <table class="table table-striped profile-table">
                             <thead class="thead">
@@ -56,9 +57,21 @@
                         </table>
                     </div>
                 </div>
-                <div class="row justify-content-end" id="see-all">
-                    <a href="{% url 'accounts-searchhistory' %}">See all</a>
+                <div class="row justify-content-between" id="see-all">
+                    {% if searches.count > 5 %}
+                        <div class="col-2"><a href="{% url 'accounts-searchhistory' %}">See all</a></div>
+                        <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
+                    {% else %}
+                        <div class="col-2"></div>
+                        <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
+                    {% endif %}
                 </div>
+                    {% else %}
+                    <br>
+                    <p>Your search history is empty</p>
+                {% endif %}
+
+
             </div>
         </div>
     </div>
