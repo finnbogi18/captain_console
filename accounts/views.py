@@ -10,10 +10,6 @@ from django.contrib.auth import login
 from products.models import Product
 
 
-def index(request):
-    return render(request, 'accounts/index.html')
-
-
 def login(request):
     return render(request, 'accounts/login.html')
 

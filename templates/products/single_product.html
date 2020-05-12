@@ -4,7 +4,11 @@
             <img class="product-img" src="{{ product.productimage_set.first.image }}"/>
         </div>
         <h4>{{ product.name }}</h4>
-        <p>$ {{ product.price }}</p>
+        {% if product.on_sale %}
+        <p class="on-sale">$ {{ product.price }} SALE!</p>
+          {% else %}
+          <p class="">$ {{ product.price }}</p>
+        {% endif %}
         <a href="{{ product.get_add_to_cart_url }}" class="btn btn-warning">Add to Cart</a>
 
     </a>

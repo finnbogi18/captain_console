@@ -142,3 +142,11 @@
     padding-top: 10px;
     padding-right: 15px;
 }
+
+.on-sale {
+    color: red;
+}
+.same-size-button {
+    height: 100% !important;
+    width: 100px !important;
+}
