@@ -35,6 +35,9 @@ class Order(models.Model):
 
         return total
 
+    def confirm_order(self):
+        self.ordered = True
+
 
 class OrderContactInfo(models.Model):
     order = models.OneToOneField(Order, on_delete=models.CASCADE)

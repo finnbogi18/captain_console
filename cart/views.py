@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from cart.models import Order, OrderItem, OrderContactInfo
+from cart.models import Order, OrderItem, OrderContactInfo, OrderPaymentInfo
 from products.models import Product
 from django.utils import timezone
 from django.db.models import F
 from django.contrib.auth.decorators import login_required
 from cart.forms.contact_form import ContactInformationForm
+from cart.forms.payment_form import PaymentInformationForm
 from django.contrib.auth.models import User
 
 
@@ -16,13 +17,14 @@ def index(request):
     return render(request, 'cart/index.html', context)
 
 
+@login_required
 def checkout(request):
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     order = order_qs[0]
     order_contact = OrderContactInfo.objects.get_or_create(order=order)
     order_contact_test = order_contact[0]
     context = {
-        'orders':order_qs,
+        'orders': order_qs,
         'contact_form': ContactInformationForm(instance=order_contact_test)
     }
     if request.method == 'POST':
@@ -30,9 +32,48 @@ def checkout(request):
         if contact_form.is_valid():
             contact_info = contact_form.save(commit=False)
             contact_info.save()
-            return render(request, 'cart/checkout.html', context)
+            return redirect('payment-index')
 
     return render(request, 'cart/checkout.html', context)
+
+
+@login_required
+def payment(request):
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order = order_qs[0]
+    order_payment = OrderPaymentInfo.objects.get_or_create(order=order, defaults={
+        'cvv': 123
+    })
+    order_payment_instance = order_payment[0]
+    context = {
+        'orders': order_qs,
+        'payment_form': PaymentInformationForm(instance=order_payment_instance)
+    }
+    if request.method == 'POST':
+        payment_form = PaymentInformationForm(instance=order_payment_instance, data=request.POST)
+        if payment_form.is_valid():
+            payment_info = payment_form.save(commit=False)
+            payment_info.save()
+            return redirect('review-index')
+
+    return render(request, 'cart/payment.html', context)
+
+
+@login_required
+def review(request):
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_contact_qs = OrderContactInfo.objects.filter(order=order_qs[0])
+    order_payment_qs = OrderPaymentInfo.objects.filter(order=order_qs[0])
+    context = {
+        'order': order_qs[0],
+        'order_contact': order_contact_qs[0],
+        'order_payment': order_payment_qs[0]
+    }
+    if request.method == 'POST':
+        order_qs[0].ordered = True
+        order_qs[0].save()
+    return render(request, 'cart/confirmation.html', context)
+
 
 
 @login_required
