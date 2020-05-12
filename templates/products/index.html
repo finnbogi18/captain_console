@@ -5,6 +5,9 @@
 {% block content %}
   <div>
     <h2>Crazy gaming products!!</h2>
+    {% if searchstring != '' %}
+    <p>Search results for: "{{ searchstring }}"</p>
+    {% endif %}
   </div>
   <form method="GET" action=".">
     <div class="input-group">
