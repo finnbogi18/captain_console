@@ -31,11 +31,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for search in paginator.object_list reversed %}
-                                    <tr>
-                                        <td>{{ search.search }}</td>
-                                        <td>{{ search.date }}</td>
-                                    </tr>
+                                {% for search in searches %}
+                                    {% if forloop.counter <= 20 %}
+                                        <tr>
+                                            <td>{{ search.search }}</td>
+                                            <td>{{ search.date }}</td>
+                                        </tr>
+                                    {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>

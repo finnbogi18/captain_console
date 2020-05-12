@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for search in searches reversed%}
+                                {% for search in searches %}
                                     {% if forloop.counter <= 5 %}
                                         <tr>
                                             <td>{{ search.search }}</td>

@@ -62,7 +62,6 @@ def profile(request):
 @login_required
 def search_history(request):
     context = {'accounts': Profile.objects.all(),
-               'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),
-               'paginator': Paginator(User.objects.get(id=request.user.id).searchhistory_set.all(), 5)}
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),}
 
     return render(request, 'accounts/searchhistory.html', context)
