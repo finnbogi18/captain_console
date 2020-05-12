@@ -16,7 +16,9 @@ def index(request):
     category = request.GET.get('category')
     manufacturer = request.GET.get('manufacturer')
     order_by = request.GET.get('order-by')
+    search_string = ''
     if is_valid_queryparam(product_search):
+        search_string = product_search
         current_user = request.user
         qs = qs.filter(name__icontains=product_search)
         if request.user.is_authenticated:
@@ -45,7 +47,8 @@ def index(request):
     context = {
         'queryset': qs,
         'categories': categories,
-        'manufacturers': manufacturers
+        'manufacturers': manufacturers,
+        'searchstring': search_string
     }
     return render(request, 'products/index.html', context)
 
