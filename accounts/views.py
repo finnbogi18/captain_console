@@ -38,8 +38,6 @@ def edit(request):
         'profile_form': ProfileForm(instance=profile),
         'user_form': UserForm(instance=user)
     }
-
-
     if request.method == 'POST':
         user_form = UserForm(instance=user, data=request.POST)
         profile_form = ProfileForm(instance=request.user.profile, data=request.POST)

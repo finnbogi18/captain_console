@@ -2,6 +2,7 @@ from django.db import models
 from products.models import Product
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django_countries.fields import CountryField
 
 
 class OrderItem(models.Model):
@@ -25,7 +26,7 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user.username
+        return f"{self.id} - {self.user.username}"
 
     def get_order_total_price(self):
         total = 0
@@ -36,14 +37,21 @@ class Order(models.Model):
 
 
 class OrderContactInfo(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.OneToOneField(Order, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     street_name = models.CharField(max_length=255)
     house_number = models.CharField(max_length=10)
     city = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
+    country = CountryField()
     postal_code = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"Order id: {self.order}, Owner: {self.first_name} {self.last_name}"
+        return f"Order id: {self.order.id}, Owner: {self.first_name} {self.last_name}"
+
+
+class OrderPaymentInfo(models.Model):
+    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+    card_number = models.CharField(max_length=19)
+    cardholder_name = models.CharField(max_length=255)
+    cvv = models.IntegerField(max_length=3)
