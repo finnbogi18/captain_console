@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <br><h2> {{ user.profile.first_name }} {{ user.profile.last_name }}'s Search History</h2> <br>
+    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
     <div class="container profile-container">
         <div class="row profile-row">
             <div class="col-3 profile-column">
@@ -34,7 +34,8 @@
                                 {% for search in searches %}
                                     {% if forloop.counter <= 20 %}
                                         <tr>
-                                            <td>{{ search.search }}</td>
+                                            <td><a href="{% url 'product-index' %}?product-search={{ search.search }}">
+                                            {{ search.search }}</a></td>
                                             <td>{{ search.date }}</td>
                                         </tr>
                                     {% endif %}
