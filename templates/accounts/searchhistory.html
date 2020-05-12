@@ -33,7 +33,8 @@
                             <tbody>
                                 {% for search in paginator.object_list reversed %}
                                     <tr>
-                                        <td>{{ search.search }}</td>
+                                        <td><a href="{% url 'product-index' %}?product-search={{ search.search }}">
+                                            {{ search.search }}</a></td>
                                         <td>{{ search.date }}</td>
                                     </tr>
                                 {% endfor %}

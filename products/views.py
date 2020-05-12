@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from products.models import Product, ProductCategory, Manufacturer
@@ -17,8 +18,9 @@ def index(request):
     order_by = request.GET.get('order-by')
     if is_valid_queryparam(product_search):
         current_user = request.user
-        add_history(product_search,current_user)
         qs = qs.filter(name__icontains=product_search)
+        if request.user.is_authenticated:
+            add_history(product_search, current_user)
 
     if is_valid_queryparam(category) and category != 'Choose...':
         qs = qs.filter(category__name=category)
