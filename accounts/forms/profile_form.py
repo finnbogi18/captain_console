@@ -12,6 +12,17 @@ class UserForm(ModelForm):
             'last_name',
             'email'
         )
+        widgets = {
+            'first_name': widgets.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'last_name': widgets.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'email': widgets.TextInput(attrs={
+                'class': 'form-control'
+            })
+        }
 
 
 class ProfileForm(ModelForm):
@@ -21,6 +32,14 @@ class ProfileForm(ModelForm):
             'profile_image',
             'phone_number'
         )
+        widgets = {
+            'profile_image': widgets.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'phone_number': widgets.TextInput(attrs={
+                'class': 'form-control'
+            })
+        }
 
 
 

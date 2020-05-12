@@ -1,11 +1,11 @@
 from django.forms import ModelForm, widgets
-from cart.models import OrderContactInfo, Order
+from cart.models import OrderContactInfo
 
 
 class ContactInformationForm(ModelForm):
     class Meta:
         model = OrderContactInfo
-        exclude = ('order', 'house_number')
+        exclude = ('order',)
         widgets = {
             'first_name': widgets.TextInput(attrs={
                 'class': 'form-control',
