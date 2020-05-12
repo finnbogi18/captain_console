@@ -54,4 +54,4 @@ class OrderPaymentInfo(models.Model):
     order = models.OneToOneField(Order, on_delete=models.CASCADE)
     card_number = models.CharField(max_length=19)
     cardholder_name = models.CharField(max_length=255)
-    cvv = models.IntegerField(max_length=3)
+    cvv = models.IntegerField()
