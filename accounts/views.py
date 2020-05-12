@@ -53,14 +53,14 @@ def edit(request):
 @login_required
 def profile(request):
     context = {'accounts': Profile.objects.all(),
-               'searches': User.objects.get(id=request.user.id).searchhistory_set.all()}
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.order_by('-date')}
     return render(request, 'accounts/profile.html', context)
 
 
 @login_required
 def search_history(request):
     context = {'accounts': Profile.objects.all(),
-               'searches': User.objects.get(id=request.user.id).searchhistory_set.all(),}
+               'searches': User.objects.get(id=request.user.id).searchhistory_set.order_by('-date')}
 
     return render(request, 'accounts/searchhistory.html', context)
 
