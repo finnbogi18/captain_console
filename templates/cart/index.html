@@ -10,27 +10,28 @@
                     <div class="col-3 product-img-box d-flex align-items-center border">
                         <img src="{{ order_item.item.productimage_set.first }}" class="product-img">
                     </div>
-                    <div class="col-6 d-flex align-items-start ml-5">
+                    <div class="col-6">
                         <div class="row profile2-row">
-                            <div class="col">
+                            <div class="col-12">
                                 {{ order_item.quantity }} x of {{ order_item.item.name }}
-                                $ {{ order_item.get_item_total_price|floatformat:2 }}
+                            $ {{ order_item.get_item_total_price|floatformat:2 }}
                             </div>
                         </div>
-                        <div class="row profile2-row">
-                            <div class="col">
-                                <a href="{{ order_item.item.get_remove_one_cart }}"
-                                   class="btn btn-warning">Remove 1 from cart</a>
-                                <a href="{{ order_item.item.get_remove_all_item_cat }}"
-                                   class="btn btn-warning">Remove all item from cart</a>
-                                <a href="{{ order_item.item.get_add_to_cart_url }}"
-                                   class="btn btn-warning">Add 1 item to cart</a>
-                            </div>
+                        <div class="row d-flex align-items-center mt-5 mb-5">
+                            <div class="col"><a href="{{ order_item.item.get_remove_one_cart }}"
+                                   class="btn btn-warning same-size-button">Remove 1 from cart</a></div>
+                            <div class="col"><a href="{{ order_item.item.get_remove_all_item_cat }}"
+                                   class="btn btn-warning same-size-button">Remove all item from cart</a></div>
+                            <div class="col" id="same-size-button"><a href="{{ order_item.item.get_add_to_cart_url }}"
+                                   class="btn btn-warning same-size-button" >Add 1 item to cart</a></div>
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'checkout-index' %}" class="btn btn-danger">Continue</a>
             {% endfor %}
         {% endfor %}
+    <div class="row">
+        <div class="col"></div>
     </div>
+    </div>
+    <a href="{% url 'checkout-index' %}" class="btn btn-danger">Continue</a>
 {% endblock %}
