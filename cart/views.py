@@ -79,7 +79,7 @@ def confirm_order(request):
     order.ordered = True
     order.order_date = timezone.now()
     order.save()
-    return render(request, 'home/index.html')
+    return redirect('home-index')
 
 
 @login_required
