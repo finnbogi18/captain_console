@@ -147,6 +147,6 @@
     color: red;
 }
 .same-size-button {
-    height: 100% !important;
-    width: 100px !important;
+    height: 4rem !important;
+    width: 8rem !important;
 }
