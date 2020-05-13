@@ -69,16 +69,21 @@ def review(request):
         'order_contact': order_contact_qs[0],
         'order_payment': order_payment_qs[0]
     }
-    if request.method == 'POST':
-        order_qs[0].ordered = True
-        order_qs[0].save()
     return render(request, 'cart/confirmation.html', context)
 
+
+@login_required
+def confirm_order(request):
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order = order_qs[0]
+    order.ordered = True
+    order.order_date = timezone.now()
+    order.save()
+    return redirect('home-index')
 
 
 @login_required
 def add_to_cart(request, slug):
-    print('im in add to cart')
     item = get_object_or_404(Product, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(item=item, user=request.user)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
@@ -113,6 +118,7 @@ def remove_one_item_from_cart(request, slug):
                 order_item.save()
             else:
                 order.items.remove(order_item)
+                order_item.delete()
 
     return redirect('cart-index')
 
