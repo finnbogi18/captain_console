@@ -8,7 +8,7 @@ from cart.forms.contact_form import ContactInformationForm
 from cart.forms.payment_form import PaymentInformationForm
 from django.contrib.auth.models import User
 
-
+@login_required
 def index(request):
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     context = {
