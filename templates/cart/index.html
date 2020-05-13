@@ -7,7 +7,7 @@
         {% for order in orders %}
             {% for order_item in order.items.all %}
                 <div class="row d-flex mt-5">
-                    <div class="col-3 product-img-box d-flex align-items-center border">
+                    <div class="col-3 product-img-box d-flex align-items-center border border-dark rounded-left">
                         <img src="{{ order_item.item.productimage_set.first }}" class="product-img">
                     </div>
                     <div class="col-6">
@@ -18,11 +18,11 @@
                             </div>
                         </div>
                         <div class="row d-flex align-items-center mt-5 mb-5">
-                            <div class="col"><a href="{{ order_item.item.get_remove_one_cart }}"
+                            <div class="col-3"><a href="{{ order_item.item.get_remove_one_cart }}"
                                    class="btn btn-warning same-size-button">Remove 1 from cart</a></div>
-                            <div class="col"><a href="{{ order_item.item.get_remove_all_item_cat }}"
+                            <div class="col-3"><a href="{{ order_item.item.get_remove_all_item_cat }}"
                                    class="btn btn-warning same-size-button">Remove all item from cart</a></div>
-                            <div class="col" id="same-size-button"><a href="{{ order_item.item.get_add_to_cart_url }}"
+                            <div class="col-3" id="same-size-button"><a href="{{ order_item.item.get_add_to_cart_url }}"
                                    class="btn btn-warning same-size-button" >Add 1 item to cart</a></div>
                         </div>
                     </div>
