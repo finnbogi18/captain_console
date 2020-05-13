@@ -7,37 +7,27 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserCreationForm(UserCreationForm):
-    email = EmailField(label=_("Email address"), required=True),
-    first_name = CharField(label=_("First name"), required=True),
-    last_name = CharField(label=_("Last name"), required=True)
-
     class Meta:
         model = User
         fields = ("username", "password1", "password2", "email", "first_name", "last_name")
         widgets = {
             'username': widgets.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Username'
+                'class': 'form-control'
             }),
             'password1': widgets.PasswordInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Password'
+                'class': 'form-control'
             }),
             'password2': widgets.PasswordInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Password confirmation'
+                'class': 'form-control'
             }),
             'email': widgets.EmailInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Email'
+                'class': 'form-control'
             }),
             'first_name': widgets.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'First name'
+                'class': 'form-control'
             }),
             'last_name': widgets.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Last name'
+                'class': 'form-control'
             })
         }
 

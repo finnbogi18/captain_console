@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'cart.apps.CartConfig',
-    'django_countries'
+    'django_countries',
 ]
 
 MIDDLEWARE = [
