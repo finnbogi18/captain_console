@@ -9,7 +9,8 @@ class PaymentInformationForm(ModelForm):
         widgets = {
             'card_number': widgets.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder':'Credit Card'
+                'placeholder':'Credit Card',
+                'label': 'Credit Card'
             }),
             'cardholder_name': widgets.TextInput(attrs={
                 'class': 'form-control',

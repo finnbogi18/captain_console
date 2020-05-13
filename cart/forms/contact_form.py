@@ -13,22 +13,21 @@ class ContactInformationForm(ModelForm):
             }),
             'last_name': widgets.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder':'Last Name'
+                'placeholder': 'Last Name'
             }),
             'address': widgets.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder':'Address'
+                'placeholder': 'Address'
             }),
             'city': widgets.TextInput(attrs={
-                'class':'form-control',
-                'placeholder':'City'
+                'class': 'form-control',
+                'placeholder': 'City'
             }),
             'country': widgets.Select(attrs={
                 'class': 'custom-select',
             }),
-            'postal_code':widgets.TextInput(attrs={
-                'class':'form-control',
-                'placeholder':'Postal code'
+            'postal_code': widgets.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Postal code'
             })
         }
-

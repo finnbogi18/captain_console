@@ -14,6 +14,13 @@
 {% include 'navigation.html' %}
 
 <main role="main" class="flex-shrink-0">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="container">
         {% block content %}
         {% endblock %}
@@ -22,8 +29,10 @@
 <footer class="footer mt-auto py-3 bg-light fixed-bottom">
     <div class="container">
         <div class="row">
-            <div class="col nav-item"><a href="http://maps.google.com/?q=101 Laugavegur, Reykjavik, 2" target="_blank">Laugavegur 2</a></div>
-            <div class="col nav-item"><a href="http://maps.google.com/?q=200 Nybylavegur, Kopavogur, 12" target="_blank">Nýbýlavegur 12</a></div>
+            <div class="col nav-item"><a href="http://maps.google.com/?q=101 Laugavegur, Reykjavik, 2" target="_blank">Laugavegur
+                2</a></div>
+            <div class="col nav-item"><a href="http://maps.google.com/?q=200 Nybylavegur, Kopavogur, 12"
+                                         target="_blank">Nýbýlavegur 12</a></div>
             <div class="col nav-item">10:00 - 18:00</div>
             <div class="col nav-item"><a href="mailto:hakon19@ru.is">info@cptco.com</a></div>
             <div class="col nav-item">58-12345</div>

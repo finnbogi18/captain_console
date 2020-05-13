@@ -6,9 +6,10 @@ from django.db.models import F
 from django.contrib.auth.decorators import login_required
 from cart.forms.contact_form import ContactInformationForm
 from cart.forms.payment_form import PaymentInformationForm
-from django.contrib.auth.models import User
+from django.contrib import messages
 
 
+@login_required
 def index(request):
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     context = {
@@ -79,6 +80,7 @@ def confirm_order(request):
     order.ordered = True
     order.order_date = timezone.now()
     order.save()
+    messages.success(request, 'Order with the id {} was placed.'.format(order.id))
     return redirect('home-index')
 
 
@@ -92,13 +94,16 @@ def add_to_cart(request, slug):
         if order.items.filter(item__slug=item.slug).exists():
             order_item.quantity = F('quantity') + 1
             order_item.save()
+            messages.success(request, 'Item was added to your cart.')
         else:
             order.items.add(order_item)
+            messages.success(request, 'Item was added to your cart.')
         return redirect('product-index')
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, order_date=ordered_date)
         order.items.add(order_item)
+        messages.success(request, 'Item was added to your cart.')
     return redirect('cart-index')
 
 
@@ -140,6 +145,7 @@ def remove_all_item_from_cart(request, slug):
             )[0]
             order.items.remove(order_item)
             order_item.delete()
+            messages.info(request, 'Item was removed from your cart.')
             return redirect('cart-index')
 
     return redirect('cart-index')
