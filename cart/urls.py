@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.index, name='cart-index'),
     path('checkout', views.checkout, name='checkout-index'),
     path('payment', views.payment, name="payment-index"),
-    path('review', views.review, name="review-index")
+    path('review', views.review, name="review-index"),
+    path('confirm', views.confirm_order, name="confirm-order")
 ]
