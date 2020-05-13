@@ -102,8 +102,14 @@
     margin: 0 auto;
 }
 
+.product-img-big {
+    max-height: 419px;
+    max-width: 419px;
+    margin: 0 auto;
+}
+
 .product-img-box {
-    height: 200px;
+    height: 210px;
 }
 
 .big_profile {
@@ -149,4 +155,24 @@
 .same-size-button {
     height: 4rem !important;
     width: 8rem !important;
+}
+
+.carousel-control-next:hover {
+    transition: background-color 500ms;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.carousel-control-prev:hover {
+    transition: background-color 500ms;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.carousel-inner {
+    width: 420px;
+    height: 420px;
+}
+
+.carousel-item {
+    max-width: 420px;
+    max-height: 420px;
 }

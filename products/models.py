@@ -58,5 +58,6 @@ class ProductImage(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.image
+        return self.product_id.name
+
 
