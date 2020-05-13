@@ -5,9 +5,6 @@ from accounts.models import Profile, SearchHistory
 from forms import UserCreationForm
 from django.shortcuts import render, redirect
 from accounts.forms.profile_form import ProfileForm, UserForm
-from django.contrib.auth import login
-
-from products.models import Product
 
 
 def login(request):
