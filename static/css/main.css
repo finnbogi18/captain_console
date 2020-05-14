@@ -91,6 +91,7 @@
 }
 
 .products {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -206,4 +207,8 @@
 
 .center {
     margin: 0 auto;
+}
+
+.bg-color {
+    background: #9CC3D5FF;
 }
