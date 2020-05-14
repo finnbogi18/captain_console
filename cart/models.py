@@ -4,6 +4,34 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django_countries.fields import CountryField
 
+MONTHS_CHOICES= (
+    ("01", "01"),
+    ("02", "02"),
+    ("03", "03"),
+    ("04", "04"),
+    ("05", "05"),
+    ("06", "06"),
+    ("07", "07"),
+    ("08", "08"),
+    ("09", "09"),
+    ("10", "10"),
+    ("11", "11"),
+    ("12", "12")
+)
+
+YEAR_CHOICES = (
+    ('2020', '2020'),
+    ('2021', '2021'),
+    ('2022', '2022'),
+    ('2023', '2023'),
+    ('2024', '2024'),
+    ('2025', '2025'),
+    ('2026', '2026'),
+    ('2027', '2027'),
+    ('2028', '2028'),
+
+)
+
 
 class OrderItem(models.Model):
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -57,4 +85,14 @@ class OrderPaymentInfo(models.Model):
     order = models.OneToOneField(Order, on_delete=models.CASCADE)
     card_number = models.CharField(max_length=19)
     cardholder_name = models.CharField(max_length=255)
-    cvv = models.IntegerField()
+    cvc = models.CharField(max_length=3)
+    expiry_month = models.CharField(
+        max_length=2,
+        choices=MONTHS_CHOICES,
+        default='01'
+    )
+    expiry_year = models.CharField(
+        max_length=4,
+        choices=YEAR_CHOICES,
+        default='1'
+    )

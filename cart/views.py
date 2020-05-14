@@ -20,7 +20,7 @@ def index(request):
 
 @login_required
 def checkout(request):
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
     order_contact = OrderContactInfo.objects.get_or_create(order=order)
     order_contact_test = order_contact[0]
@@ -40,11 +40,9 @@ def checkout(request):
 
 @login_required
 def payment(request):
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
-    order_payment = OrderPaymentInfo.objects.get_or_create(order=order, defaults={
-        'cvv': 123
-    })
+    order_payment = OrderPaymentInfo.objects.get_or_create(order=order)
     order_payment_instance = order_payment[0]
     context = {
         'orders': order_qs,
@@ -62,7 +60,7 @@ def payment(request):
 
 @login_required
 def review(request):
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order_contact_qs = OrderContactInfo.objects.filter(order=order_qs[0])
     order_payment_qs = OrderPaymentInfo.objects.filter(order=order_qs[0])
     context = {
@@ -75,7 +73,7 @@ def review(request):
 
 @login_required
 def confirm_order(request):
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
     order.ordered = True
     order.order_date = timezone.now()

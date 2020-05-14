@@ -48,8 +48,17 @@
             </div>
             <div class="form-group form-row">
                 <div class="col">
-                    {{ payment_form.cvv }}
+                    {{ payment_form.cvc }}
                 </div>
+            </div>
+            <div class="form-inline form-row">
+                <div class="col-3">
+                    {{ payment_form.expiry_month }}
+                </div>
+                <div class="col-4">
+                    {{ payment_form.expiry_year }}
+                </div>
+                <div class="col">Expiry date</div>
             </div>
             <a href="{% url 'checkout-index' %}" class="btn btn-warning mt-2">Go Back</a>
             <input type="submit" class="btn btn-primary mt-2" value="Review Order"/>

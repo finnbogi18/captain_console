@@ -91,6 +91,7 @@
 }
 
 .products {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -210,4 +211,13 @@
 
 .bg-color {
     background: #9CC3D5FF;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }

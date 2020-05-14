@@ -10,14 +10,24 @@ class PaymentInformationForm(ModelForm):
             'card_number': widgets.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder':'Credit Card',
-                'label': 'Credit Card'
+                'type':'number',
+                'min_length':'15'
             }),
             'cardholder_name': widgets.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Cardholder name'
+                'placeholder': 'Cardholder name',
+                'type':'text'
             }),
-            'cvv': widgets.NumberInput(attrs={
+            'cvc': widgets.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'cvv'
+                'placeholder': 'CVC',
+                'type':'number'
+            }),
+            'expiry_month': widgets.Select(attrs={
+                'class':'custom-select'
+            }),
+            'expiry_year': widgets.Select(attrs={
+                'class': 'custom-select'
             })
         }
+

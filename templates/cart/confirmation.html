@@ -7,7 +7,7 @@
         <div class="col">
             {% for item in order.items.all %}
                 <div class="row">
-                    <p >{{ item.item.name }} x {{ item.quantity }} - ${{ item.get_item_total_price|floatformat:2 }}</p>
+                    <p>{{ item.item.name }} x {{ item.quantity }} - ${{ item.get_item_total_price|floatformat:2 }}</p>
                 </div>
             {% endfor %}
             <div class="row font-weight-bold">Total price: ${{ order.get_order_total_price|floatformat:2 }}</div>
@@ -37,7 +37,10 @@
                 <p>Cardholder name: {{ order_payment.cardholder_name }}</p>
             </div>
             <div class="row">
-                <p>CVC: {{ order_payment.cvv }}</p>
+                <p>Expiry date: {{ order_payment.expiry_month }}/{{ order_payment.expiry_year }}</p>
+            </div>
+            <div class="row">
+                <p>CVC: {{ order_payment.cvc }}</p>
             </div>
         </div>
     </div>
