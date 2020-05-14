@@ -6,6 +6,7 @@ from cart.models import Order, OrderContactInfo, OrderPaymentInfo
 from forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from accounts.forms.profile_form import ProfileForm, UserForm
+from django.contrib import messages
 
 
 def login(request):
@@ -19,6 +20,8 @@ def register(request):
             user = form.save()
             Profile.objects.create(user=user)
             return redirect('accounts-login')
+        else:
+            messages.warning(request, 'Invalid information in sign up!')
     return render(request, 'accounts/register.html', {
         'form': UserCreationForm()
     })
@@ -41,6 +44,8 @@ def edit(request):
             profile_temp.save()
             user_temp.save()
             return redirect('accounts-profile')
+        else:
+            messages.warning(request, 'Invalid information!')
     return render(request, 'accounts/edit.html', context)
 
 

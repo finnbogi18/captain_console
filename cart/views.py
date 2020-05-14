@@ -34,6 +34,8 @@ def checkout(request):
             contact_info = contact_form.save(commit=False)
             contact_info.save()
             return redirect('payment-index')
+        else:
+            messages.warning(request, 'Invalid contact information!')
 
     return render(request, 'cart/checkout.html', context)
 
@@ -54,6 +56,8 @@ def payment(request):
             payment_info = payment_form.save(commit=False)
             payment_info.save()
             return redirect('review-index')
+        else:
+            messages.warning(request, 'Invalid Payment information.')
 
     return render(request, 'cart/payment.html', context)
 

@@ -30,7 +30,6 @@
                 </div>
             </div>
         </div>
-
         <form class="form form-horizontal col border-left border-dark pr-3" method="post">
             <div class="row ml-2">
                 <h4>Payment Information</h4>
@@ -44,6 +43,7 @@
             <div class="form-group form-row">
                 <div class="col">
                     {{ payment_form.cardholder_name }}
+                    {{ payment_form.errors }}
                 </div>
             </div>
             <div class="form-group form-row">
