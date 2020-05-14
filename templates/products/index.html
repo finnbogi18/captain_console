@@ -48,7 +48,7 @@
       </div>
   </form>
 
-  <div class="products">
+  <div class="products col">
     {% if queryset %}
       {% for product in queryset %}
         {% include 'products/single_product.html' with product=product %}
