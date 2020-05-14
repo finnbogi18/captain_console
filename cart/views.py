@@ -42,9 +42,7 @@ def checkout(request):
 def payment(request):
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
-    order_payment = OrderPaymentInfo.objects.get_or_create(order=order, defaults={
-        'cvv': 123
-    })
+    order_payment = OrderPaymentInfo.objects.get_or_create(order=order)
     order_payment_instance = order_payment[0]
     context = {
         'orders': order_qs,
