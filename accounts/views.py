@@ -2,8 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from accounts.models import Profile, SearchHistory
+from cart.models import Order, OrderContactInfo, OrderPaymentInfo
 from forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from accounts.forms.profile_form import ProfileForm, UserForm
 
 
@@ -62,3 +63,17 @@ def search_history(request):
 def clear_search(request):
     SearchHistory.objects.filter(user=request.user).delete()
     return redirect ('accounts-profile')
+
+
+@login_required
+def order_id(request, id):
+    order = get_object_or_404(Order, pk=id)
+    if order.user_id == request.user.id:
+        context = {
+            'order': order,
+            'contact_info': OrderContactInfo.objects.filter(order_id=id).first,
+            'payment_info': OrderPaymentInfo.objects.filter(order_id=id).first,
+        }
+        return render(request, 'accounts/order.html', context)
+    else:
+        return redirect('accounts-profile')
