@@ -48,37 +48,37 @@
 
 07 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Started work on the cart.
 - Gísli: 
 - Hákon: Created a better search engine than google
 
 08 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Continued working on the cart, you can now add items to the cart.
 - Gísli: 
 - Hákon: 
 
 11 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Worked on the profile to fix some issues we were having.
 - Gísli: 
 - Hákon: 
 
 12 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Added the contact information step to the checkout phase.
 - Gísli: 
 - Hákon: 
 
 13 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Added the payment step into the checkout phase.
 - Gísli: 
 - Hákon: 
 
 14 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Worked on fixing some issues we were having with the cart and did some css work on it.
 - Gísli: 
 - Hákon: 
 

@@ -51,7 +51,8 @@
                     {{ payment_form.cvv }}
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary mt-2" value="Continue"/>
+            <a href="{% url 'checkout-index' %}" class="btn btn-warning mt-2">Go Back</a>
+            <input type="submit" class="btn btn-primary mt-2" value="Review Order"/>
         </form>
     </div>
     </div>

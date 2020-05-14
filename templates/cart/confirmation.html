@@ -3,14 +3,11 @@
     <title>Cart</title>
 {% endblock %}
 {% block content %}
-    <div class="container d-flex mt-5 border border-dark">
+    <div class="container d-flex mt-5 shadow-border">
         <div class="col">
             {% for item in order.items.all %}
                 <div class="row">
-                    <p>{{ item.item.name }}</p>
-                </div>
-                <div class="row">
-                    <p>{{ item.quantity }}</p>
+                    <p>{{ item.item.name }} x {{ item.quantity }} - ${{ item.get_item_total_price }}</p>
                 </div>
             {% endfor %}
         </div>
@@ -30,8 +27,6 @@
             <div class="row">
                 <p>Country: {{ order_contact.country }}</p>
             </div>
-        </div>
-        <div class="col">
             <div class="row">
                 <p>Card number: {{ order_payment.card_number }}</p>
             </div>
@@ -42,8 +37,12 @@
                 <p>CVV: {{ order_payment.cvv }}</p>
             </div>
         </div>
+        <div>
+            <a href="{% url 'payment-index' %}" class="btn btn-warning mt-2">Go Back</a>
+            <a href="{% url 'confirm-order' %}" class="btn btn-primary mt-2">Confirm</a>
+        </div>
     </div>
-    <a href="{% url 'confirm-order' %}" class="btn btn-warning">Confirm</a>
+
 {% endblock %}
 
 

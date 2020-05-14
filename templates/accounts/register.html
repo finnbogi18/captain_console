@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load myfilters %}
-    <h2>Sign up</h2>
-    <form class="form form-horizontal " method="post">
+    <form class="form form-horizontal shadow-border my-5 p-5" method="post">
+        <h2>Sign up</h2>
+
         {% csrf_token %}
         <div class="form-group form-row">
             <div class="col">
@@ -35,5 +36,6 @@
             </div>
         </div>
         <input type="submit" class="btn btn-primary" value="Sign up" />
+        <a href="{% url 'accounts-login' %}" class="btn btn-primary">Login instead</a>
     </form>
 {% endblock %}
