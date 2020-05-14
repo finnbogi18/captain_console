@@ -87,7 +87,7 @@
                                 {% for order in orders %}
                                     {% if forloop.counter <= 5 %}
                                         <tr>
-                                            <td><a href="/order/{{ order.id }}">
+                                            <td><a href="/accounts/profile/order/{{ order.id }}">
                                                 {{ order.id }}</a></td>
                                         </tr>
                                     {% endif %}

@@ -48,7 +48,7 @@ def edit(request):
 def profile(request):
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.order_by('-date'),
-               'orders': Order.objects.filter(id=request.user.id, ordered=True)
+               'orders': Order.objects.filter(user_id=request.user.id, ordered=True)
                }
     return render(request, 'accounts/profile.html', context)
 
