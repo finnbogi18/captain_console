@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
+    <div class="container profile-container">
+        <div class="row profile-row">
+            <div class="col-3 profile-column">
+                <div class="row text-center">
+                    <div class="col"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
+                    onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-primary mt-2" href="{% url 'accounts-profile' %}">Back</a>
+                </div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-primary mt-2" id="profile-back" href="{% url 'accounts-logout' %}">Logout</a>
+                </div>
+
+            </div>
+            <div class="col profile-column">
+                <div class="row profile2-row">
+                    <div class="col profile-column">ORDER HISTORY</div>
+                </div>
+                <div class="row profile3-row">
+                    <div class="col profile-column">
+                        <table class="table table-striped profile-table">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders reversed %}
+                                    {% if forloop.counter <= 20 %}
+                                        <tr>
+                                            <td><a href="/accounts/profile/order/{{ order.id }}">
+                                            {{ order.id }}</a></td>
+                                            <td>{{ order.order_date }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

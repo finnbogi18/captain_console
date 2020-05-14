@@ -56,25 +56,25 @@
 - Atli: 
 - Finnbogi: Continued working on the cart, you can now add items to the cart.
 - Gísli: 
-- Hákon: 
+- Hákon: Created categories filter
 
 11 MAY.
 - Atli: 
 - Finnbogi: Worked on the profile to fix some issues we were having.
 - Gísli: 
-- Hákon: 
+- Hákon: Fixed search and filter and made it more pretty
 
 12 MAY.
 - Atli: 
 - Finnbogi: Added the contact information step to the checkout phase.
 - Gísli: 
-- Hákon: 
+- Hákon: Fixed bug in updating profile and made order by simpler
 
 13 MAY.
 - Atli: 
 - Finnbogi: Added the payment step into the checkout phase.
 - Gísli: 
-- Hákon: 
+- Hákon: Made on sale work and show your search result
 
 14 MAY.
 - Atli: 
