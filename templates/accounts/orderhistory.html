@@ -34,7 +34,7 @@
                                 {% for order in orders reversed %}
                                     {% if forloop.counter <= 20 %}
                                         <tr>
-                                            <td><a href="{% url 'accounts-order' %}/{{ order.id }}">
+                                            <td><a href="/accounts/profile/order/{{ order.id }}">
                                             {{ order.id }}</a></td>
                                             <td>{{ order.order_date }}</td>
                                         </tr>

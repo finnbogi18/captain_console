@@ -66,6 +66,12 @@ def clear_search(request):
     SearchHistory.objects.filter(user=request.user).delete()
     return redirect ('accounts-profile')
 
+@login_required
+def order_history(request):
+    context = {'accounts': Profile.objects.all(),
+               'orders': Order.objects.filter(user_id=request.user.id, ordered=True),
+    }
+    return render(request, 'accounts/orderhistory.html', context)
 
 @login_required
 def order_id(request, id):
