@@ -24,6 +24,7 @@ class Order(models.Model):
     start_date = models.DateTimeField(default=timezone.now)
     order_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
+    dismissed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.id} - {self.user.username}"
