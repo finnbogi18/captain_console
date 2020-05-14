@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
-    <div class="container profile-container">
+    <div class="container profile-container shadow-border mt-5 p-5">
+        <h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2>
         <div class="row profile-row">
             <div class="col-3 profile-column">
                 <div class="row text-center">
-                    <div class="col"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
-                    onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
+                    <div class="col"><img src="{{ user.profile.profile_image }}"
+                                          class="big_profile image-responsive rounded-circle"
+                                          onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
 
                 </div>
                 <div class="row justify-content-center">
@@ -25,21 +26,21 @@
                     <div class="col profile-column">
                         <table class="table table-striped profile-table">
                             <thead class="thead">
-                                <tr>
-                                    <th scope="col">Search</th>
-                                    <th scope="col">Date</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">Search</th>
+                                <th scope="col">Date</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {% for search in searches %}
-                                    {% if forloop.counter <= 20 %}
-                                        <tr>
-                                            <td><a href="{% url 'product-index' %}?product-search={{ search.search }}">
+                            {% for search in searches %}
+                                {% if forloop.counter <= 20 %}
+                                    <tr>
+                                        <td><a href="{% url 'product-index' %}?product-search={{ search.search }}">
                                             {{ search.search }}</a></td>
-                                            <td>{{ search.date }}</td>
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
+                                        <td>{{ search.date }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

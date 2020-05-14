@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Profile</h2>
-    <form class="form form-horizontal" method="post">
+    <form class="form form-horizontal shadow-border mt-5 p-5" method="post">
+        <h2>Profile</h2>
+
         {% csrf_token %}
         {{ user_form }}
         {{ profile_form }}

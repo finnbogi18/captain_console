@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}
-<title>Profile</title>
+    <title>Profile</title>
 {% endblock %}
 {% block content %}
-    <br><h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2> <br>
-    <div class="container profile-container">
+    <div class="container profile-container shadow-border mt-5 p-5">
+        <h2> {{ user.first_name }} {{ user.last_name }}'s profile</h2>
+
         <div class="row profile-row">
             <div class="col-3 profile-column">
                 <div class="row text-center">
-                    <div class="col"><img src="{{ user.profile.profile_image }}" class="big_profile image-responsive rounded-circle"
-                    onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
+                    <div class="col"><img src="{{ user.profile.profile_image }}"
+                                          class="big_profile image-responsive rounded-circle"
+                                          onerror="this.onerror=null;this.src='/static/images/svg/person.svg';"></div>
 
                 </div>
                 <div class="row justify-content-center">
@@ -23,11 +25,14 @@
                 </div>
                 <div class="row profile3-row" id="profile-personal-info">
                     <div class="col profile-column">
-                        First name: <bold>{{ user.first_name }}</bold> <br>
+                        First name:
+                        <bold>{{ user.first_name }}</bold>
+                        <br>
                         Last name: {{ user.last_name }} <br>
                         Email: {{ user.email }} <br>
                         Phone number: {{ user.profile.phone_number }} <br>
-                        <a class="btn btn-primary mt-2 " id="profile-btn" href="{% url 'accounts-edit' %}">Edit profile</a>
+                        <a class="btn btn-primary mt-2 " id="profile-btn" href="{% url 'accounts-edit' %}">Edit
+                            profile</a>
                     </div>
                 </div>
                 <div class="row profile2-row mt-5">
@@ -35,15 +40,15 @@
                 </div>
                 {% if searches.count > 0 %}
                     <div class="row profile3-row">
-                    <div class="col profile-column">
-                        <table class="table table-striped profile-table">
-                            <thead class="thead">
+                        <div class="col profile-column">
+                            <table class="table table-striped profile-table">
+                                <thead class="thead">
                                 <tr>
                                     <th scope="col">Search</th>
                                     <th scope="col">Date</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
                                 {% for search in searches %}
                                     {% if forloop.counter <= 5 %}
                                         <tr>
@@ -53,19 +58,21 @@
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <div class="row justify-content-between" id="see-all">
-                    {% if searches.count > 5 %}
-                        <div class="col-2"><a href="{% url 'accounts-searchhistory' %}">See all</a></div>
-                        <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
-                    {% else %}
-                        <div class="col-2"></div>
-                        <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a></div>
-                    {% endif %}
-                </div>
+                    <div class="row justify-content-between" id="see-all">
+                        {% if searches.count > 5 %}
+                            <div class="col-2"><a href="{% url 'accounts-searchhistory' %}">See all</a></div>
+                            <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a>
+                            </div>
+                        {% else %}
+                            <div class="col-2"></div>
+                            <div class="col-2 text-right"><a href="{% url 'accounts-clearhistory' %}">clear search</a>
+                            </div>
+                        {% endif %}
+                    </div>
                 {% else %}
                     <p class="mt-2">Your search history is empty</p>
                 {% endif %}
@@ -74,15 +81,15 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col">
-                    {% if orders.count > 0 %}
-                        <table class="table table-striped profile-table">
-                            <thead class="thead">
+                        {% if orders.count > 0 %}
+                            <table class="table table-striped profile-table">
+                                <thead class="thead">
                                 <tr>
                                     <th scope="col">Order ID</th>
                                     <th scope="col">Date</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
                                 {% for order in orders reversed %}
                                     {% if forloop.counter <= 5 %}
                                         <tr>
@@ -92,11 +99,11 @@
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
-                            </tbody>
-                        </table>
-                    {% else %}
-                        <p class="mt-2">Your order history is empty</p>
-                    {% endif %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <p class="mt-2">Your order history is empty</p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="row justify-content-between" id="see-all">
