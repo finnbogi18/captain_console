@@ -77,22 +77,22 @@
 - Hákon: Made on sale work and show your search result.
 
 14 MAY.
-- Atli: linked the order history to an order template to get an overview of the order
+- Atli: linked the order history to an order template to get an overview of the order.
 - Finnbogi: Worked on fixing some issues we were having with the cart and did some css work on it.
 - Gísli: Made the order history View and url path added some more style.
-- Hákon:
+- Hákon: Finished up the project and edited the presentation.
 
 15 MAY.
 - Atli: 
 - Finnbogi: 
-- Gísli: 
-- Hákon: 
+- Gísli: Did the peer review.
+- Hákon: Did the peer review and turned in the project.
 
 18 MAY.
 - Atli: 
 - Finnbogi: 
 - Gísli: Went to work, played some games.
-- Hákon: 
+- Hákon: Atvinnulaus :/
 
 19 MAY.
 - Atli: 
