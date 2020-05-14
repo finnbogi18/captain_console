@@ -10,5 +10,5 @@ urlpatterns = [
     path('profile/edit', views.edit, name='accounts-edit'),
     path('profile/searchhistory', views.search_history, name='accounts-searchhistory'),
     path('profile/searchhistory/clear', views.clear_search, name='accounts-clearhistory'),
-    path('profile/order/<int:id>', views.order_id, name="account_order"),
+    path('profile/order/<int:id>', views.order_id, name="account-order"),
 ]
