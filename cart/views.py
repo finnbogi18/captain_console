@@ -11,7 +11,7 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     context = {
         'orders': order_qs
     }
@@ -88,7 +88,7 @@ def confirm_order(request):
 def add_to_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(item=item, user=request.user)
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     if order_qs.exists():
         order = order_qs[0]
         if order.items.filter(item__slug=item.slug).exists():
@@ -114,7 +114,7 @@ def remove_one_item_from_cart(request, slug):
         item=item,
         user=request.user,
         is_ordered=False)
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     if order_qs.exists():
         order = order_qs[0]
         if order.items.filter(item__slug=item.slug).exists():
@@ -125,7 +125,8 @@ def remove_one_item_from_cart(request, slug):
                 order.items.remove(order_item)
                 order_item.delete()
                 if not order.items.filter(user=request.user):
-                    Order.objects.filter(user=request.user, ordered=False).delete()
+                    order.dismissed = True
+                    order.save()
 
     return redirect('cart-index')
 
@@ -148,7 +149,7 @@ def remove_all_item_from_cart(request, slug):
             order.items.remove(order_item)
             order_item.delete()
             if not order.items.filter(user=request.user):
-                Order.objects.filter(user=request.user, ordered=False).delete()
+                order.dismissed = False
             messages.info(request, 'Item was removed from your cart.')
             return redirect('cart-index')
 

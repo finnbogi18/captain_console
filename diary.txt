@@ -29,55 +29,55 @@
 - Hákon: Took interview and finalized the report.
 
 04 MAY.
-- Atli:
+- Atli:Worked with gísli on creating apps
 - Finnbogi: Started working on setting up the github for the project and the django project.
 - Gísli: Started working on creating the apps and adding basic paths.
 - Hákon: Got github working and create a virtual environment in the same repository.
 
 05 MAY.
-- Atli: 
+- Atli: worked on the register app and profile
 - Finnbogi: Worked on the home page and implementing some basics views and navigation for the app.
 - Gísli: Started working on the profile and login pages.
 - Hákon: Sadly did not do much else than helping the guys problem solving their work.
 
 06 MAY.
-- Atli: 
+- Atli: worked on editing profile app
 - Finnbogi: Did some work on the basics of the app, linking stuff together in the navigation bar and added a footer.
 - Gísli: Continued working on the profile page and added a basic view of the search history.
 - Hákon: I created a product page and inserted data so we can see some products in our store.
 
 07 MAY.
-- Atli: 
+- Atli: worked on the searchhistory app and made a template for the searchhistory table
 - Finnbogi: Started work on the cart.
 - Gísli: Added a searchhistory table to the database and bug fixes.
 - Hákon: Created a better search engine than google.
 
 08 MAY.
-- Atli: 
+- Atli: finished prettifying the profile page
 - Finnbogi: Continued working on the cart, you can now add items to the cart.
 - Gísli: Finished working on the search history and fixing the search bar.
 - Hákon: Created categories filter.
 
 11 MAY.
-- Atli: 
+- Atli: started styling the cart
 - Finnbogi: Worked on the profile to fix some issues we were having.
 - Gísli: General fixes and added some style.
 - Hákon: Fixed search and filter and made it more pretty.
 
 12 MAY.
-- Atli: 
+- Atli: added clear all to search history
 - Finnbogi: Added the contact information step to the checkout phase.
 - Gísli: Added a click function on the searchhistory to go to that search and added google maps links in the footer.
 - Hákon: Fixed bug in updating profile and made order by simpler.
 
 13 MAY.
-- Atli: 
+- Atli: implemented order history to profile page
 - Finnbogi: Added the payment step into the checkout phase.
 - Gísli: Fixed the register form and added some style.
 - Hákon: Made on sale work and show your search result.
 
 14 MAY.
-- Atli: 
+- Atli: linked the order history to an order template to get an overview of the order
 - Finnbogi: Worked on fixing some issues we were having with the cart and did some css work on it.
 - Gísli: Made the order history View and url path added some more style.
 - Hákon:
