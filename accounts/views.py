@@ -10,10 +10,12 @@ from django.contrib import messages
 
 
 def login(request):
+    """This is the login page"""
     return render(request, 'accounts/login.html')
 
 
 def register(request):
+    """This is to open up forms to sign up to the page"""
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
@@ -29,6 +31,7 @@ def register(request):
 
 @login_required
 def edit(request):
+    """This is to edit the profile"""
     user = User.objects.filter(id=request.user.id).first()
     profile = Profile.objects.filter(user=user).first()
     context = {
@@ -51,6 +54,7 @@ def edit(request):
 
 @login_required
 def profile(request):
+    """This is to open the profile html"""
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.order_by('-date'),
                'orders': Order.objects.filter(user_id=request.user.id, ordered=True)
@@ -60,6 +64,7 @@ def profile(request):
 
 @login_required
 def search_history(request):
+    """This is to view the whole search history, the client is able to access this if he has more then 5 searches"""
     context = {'accounts': Profile.objects.all(),
                'searches': User.objects.get(id=request.user.id).searchhistory_set.order_by('-date')}
 
@@ -68,18 +73,23 @@ def search_history(request):
 
 @login_required
 def clear_search(request):
+    """This clears the search history when the client presses "clear search" """
     SearchHistory.objects.filter(user=request.user).delete()
-    return redirect ('accounts-profile')
+    return redirect('accounts-profile')
+
 
 @login_required
 def order_history(request):
+    """This opens up the orderhistory. If the client has more than 5 orders he is able to open this"""
     context = {'accounts': Profile.objects.all(),
                'orders': Order.objects.filter(user_id=request.user.id, ordered=True),
     }
     return render(request, 'accounts/orderhistory.html', context)
 
+
 @login_required
 def order_id(request, id):
+    """this is to show the order from the profile app. We need a specific number which is the order ID"""
     order = get_object_or_404(Order, pk=id)
     if order.user_id == request.user.id:
         context = {
