@@ -124,6 +124,8 @@ def remove_one_item_from_cart(request, slug):
             else:
                 order.items.remove(order_item)
                 order_item.delete()
+                if not order.items.filter(user=request.user):
+                    Order.objects.filter(user=request.user, ordered=False).delete()
 
     return redirect('cart-index')
 

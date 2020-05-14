@@ -44,7 +44,10 @@
                 </div>
             </div>
         {% else %}
-            <div>Your cart is empty!</div>
+            <div class="row font-weight-bold">Your cart is empty!</div>
+            <div class="row">
+                <a href="{% url 'product-index' %}" class="btn btn-primary mt-3">Go back to store</a>
+            </div>
         {% endif %}
 
 {% endblock %}
