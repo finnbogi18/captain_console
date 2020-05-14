@@ -19,5 +19,12 @@ class PaymentInformationForm(ModelForm):
             'cvv': widgets.NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'cvv'
+            }),
+            'expiry_month': widgets.Select(attrs={
+                'class':'custom-select'
+            }),
+            'expiry_year': widgets.Select(attrs={
+                'class': 'custom-select'
             })
         }
+

@@ -35,6 +35,9 @@
                 <p>Cardholder name: {{ order_payment.cardholder_name }}</p>
             </div>
             <div class="row">
+                <p>Expiry date: {{ order_payment.expiry_month }}/{{ order_payment.expiry_year }}</p>
+            </div>
+            <div class="row">
                 <p>CVC: {{ order_payment.cvv }}</p>
             </div>
         </div>
