@@ -75,12 +75,34 @@
                 </div>
                 <div class="row profile3-row">
                     <div class="col">
-                        {% if orders.count > 0 %}
-                            <p>bla</p>
-                        {% else %}
-                            <p>blii</p>
-                        {% endif %}
+                    {% if orders.count > 0 %}
+                        <table class="table table-striped profile-table">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                    {% if forloop.counter <= 5 %}
+                                        <tr>
+                                            <td><a href="{% url 'accounts-order' %}/{{ order.id }}">
+                                                {{ order.id }}</a></td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        Order history is empty
+                    {% endif %}
                     </div>
+                </div>
+                <div class="row justify-content-between" id="see-all">
+                    {% if orders.count > 5 %}
+                        <div class="col-2"><a href="{% url 'accounts-orderhistory' %}">See all</a></div>
+                    {% endif %}
                 </div>
             </div>
         </div>
