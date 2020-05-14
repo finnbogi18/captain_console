@@ -79,8 +79,8 @@ def order_id(request, id):
     if order.user_id == request.user.id:
         context = {
             'order': order,
-            'contact_info': OrderContactInfo.objects.filter(order_id=id).first,
-            'payment_info': OrderPaymentInfo.objects.filter(order_id=id).first,
+            'order_contact': OrderContactInfo.objects.filter(order_id=id).first,
+            'order_payment': OrderPaymentInfo.objects.filter(order_id=id).first,
         }
         return render(request, 'accounts/order.html', context)
     else:
