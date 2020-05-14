@@ -20,6 +20,9 @@ def index(request):
 
 @login_required
 def checkout(request):
+    '''Renders the checkout phase and the
+    contact information form.
+    '''
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
     order_contact = OrderContactInfo.objects.get_or_create(order=order)
@@ -42,6 +45,9 @@ def checkout(request):
 
 @login_required
 def payment(request):
+    '''Renders the payment view and
+    shows the payment information form.
+    '''
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
     order_payment = OrderPaymentInfo.objects.get_or_create(order=order)
@@ -64,6 +70,9 @@ def payment(request):
 
 @login_required
 def review(request):
+    '''Renders the review page with
+    all the required information.
+    '''
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order_contact_qs = OrderContactInfo.objects.filter(order=order_qs[0])
     order_payment_qs = OrderPaymentInfo.objects.filter(order=order_qs[0])
@@ -77,6 +86,9 @@ def review(request):
 
 @login_required
 def confirm_order(request):
+    '''Marks the order as ordered and sets
+    the ordered date to the current time.
+    '''
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
     order = order_qs[0]
     order.ordered = True
@@ -88,6 +100,9 @@ def confirm_order(request):
 
 @login_required
 def add_to_cart(request, slug):
+    '''Adds the item to the cart or increases the amount of
+    that item in the cart.
+    '''
     item = get_object_or_404(Product, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(item=item, user=request.user)
     order_qs = Order.objects.filter(user=request.user, ordered=False, dismissed=False)
@@ -101,7 +116,7 @@ def add_to_cart(request, slug):
             order.items.add(order_item)
             messages.success(request, 'Item was added to your cart.')
         return redirect('product-index')
-    else:
+    else:  # Creates the order if this is the first item added into the cart.
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, order_date=ordered_date)
         order.items.add(order_item)
@@ -111,6 +126,8 @@ def add_to_cart(request, slug):
 
 @login_required
 def remove_one_item_from_cart(request, slug):
+    '''Removes one item from the cart.
+    '''
     item = get_object_or_404(Product, slug=slug)
     order_item = OrderItem.objects.get(
         item=item,
@@ -126,33 +143,9 @@ def remove_one_item_from_cart(request, slug):
             else:
                 order.items.remove(order_item)
                 order_item.delete()
-                if not order.items.filter(user=request.user):
+                if not order.items.filter(
+                        user=request.user):  # checks if the cart is emptied and dismissed the order if so.
                     order.dismissed = True
                     order.save()
-
-    return redirect('cart-index')
-
-
-@login_required
-def remove_all_item_from_cart(request, slug):
-    item = get_object_or_404(Product, slug=slug)
-    order_qs = Order.objects.filter(
-        user=request.user,
-        ordered=False
-    )
-    if order_qs.exists():
-        order = order_qs[0]
-        if order.items.filter(item__slug=item.slug).exists():
-            order_item = OrderItem.objects.filter(
-                item=item,
-                user=request.user,
-                is_ordered=False
-            )[0]
-            order.items.remove(order_item)
-            order_item.delete()
-            if not order.items.filter(user=request.user):
-                order.dismissed = False
-            messages.info(request, 'Item was removed from your cart.')
-            return redirect('cart-index')
 
     return redirect('cart-index')
