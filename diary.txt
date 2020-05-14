@@ -56,25 +56,25 @@
 - Atli: 
 - Finnbogi: 
 - Gísli: 
-- Hákon: 
+- Hákon: Created categories filter
 
 11 MAY.
 - Atli: 
 - Finnbogi: 
 - Gísli: 
-- Hákon: 
+- Hákon: Fixed search and filter and made it more pretty
 
 12 MAY.
 - Atli: 
 - Finnbogi: 
 - Gísli: 
-- Hákon: 
+- Hákon: Fixed bug in updating profile and made order by simpler
 
 13 MAY.
 - Atli: 
 - Finnbogi: 
 - Gísli: 
-- Hákon: 
+- Hákon: Made on sale work and show your search result
 
 14 MAY.
 - Atli: 
