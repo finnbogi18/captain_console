@@ -5,7 +5,7 @@
 {% block content %}
   <div>
     <h2>Crazy gaming products!!</h2>
-    {% if searchstring != '' %}
+    {% if searchstring != '' and searchstring != None %}
     <p>Search results for: "{{ searchstring }}"</p>
     {% endif %}
   </div>
