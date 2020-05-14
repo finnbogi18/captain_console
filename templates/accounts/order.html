@@ -1,19 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-    {{ contact_info.first_name }} {{ contact_info.last_name }}
-    {% for order_item in order.items.all %}
-        <div class="row d-flex mt-5">
-            <div class="col-3 product-img-box d-flex align-items-center border border-dark rounded-left">
-                <img src="{{ order_item.item.productimage_set.first }}" class="product-img">
-            </div>
-            <div class="col">
-                <div class="row profile2-row">
-                    <div class="col-12">
-                        {{ order_item.quantity }} x of {{ order_item.item.name }}
-                        $ {{ order_item.get_item_total_price|floatformat:2 }}
-                    </div>
+    <h2 class="mt-4 mb-4">Order ID: {{ order.id }}</h2>
+    <div class="container d-flex mt-5 shadow-border p-5">
+        <div class="col">
+            {% for item in order.items.all %}
+                <div class="row">
+                    <p>{{ item.item.name }} x {{ item.quantity }} - ${{ item.get_item_total_price|floatformat:2 }}</p>
                 </div>
+            {% endfor %}
+            <div class="row font-weight-bold">Total price: ${{ order.get_order_total_price|floatformat:2 }}</div>
+        </div>
+        <div class="col border-left border-dark pl-5">
+            <div class="row">
+                <p>Name: {{ order_contact.first_name }} {{ order_contact.last_name }}</p>
+            </div>
+            <div class="row">
+                <p>Address: {{ order_contact.address }}</p>
+            </div>
+            <div class="row">
+                <p>City: {{ order_contact.city }}</p>
+            </div>
+            <div class="row">
+                <p>Postal Code: {{ order_contact.postal_code }}</p>
+            </div>
+            <div class="row">
+                <p>Country: {{ order_contact.country }}</p>
             </div>
         </div>
-    {% endfor %}
+        <div class="col border-left border-dark pl-5">
+            <div class="row">
+                <p>Card number: {{ order_payment.card_number }}</p>
+            </div>
+            <div class="row">
+                <p>Cardholder name: {{ order_payment.cardholder_name }}</p>
+            </div>
+            <div class="row">
+                <p>CVC: {{ order_payment.cvv }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a class="btn btn-primary mt-5" href="{% url 'accounts-profile' %}">Back</a>
+    </div>
 {% endblock %}
