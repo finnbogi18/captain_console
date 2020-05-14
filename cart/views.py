@@ -104,7 +104,7 @@ def add_to_cart(request, slug):
         order = Order.objects.create(user=request.user, order_date=ordered_date)
         order.items.add(order_item)
         messages.success(request, 'Item was added to your cart.')
-    return redirect('cart-index')
+    return redirect('product-index')
 
 
 @login_required
@@ -145,6 +145,8 @@ def remove_all_item_from_cart(request, slug):
             )[0]
             order.items.remove(order_item)
             order_item.delete()
+            if not order.items.filter(user=request.user):
+                Order.objects.filter(user=request.user, ordered=False).delete()
             messages.info(request, 'Item was removed from your cart.')
             return redirect('cart-index')
 

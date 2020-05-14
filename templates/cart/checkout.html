@@ -71,7 +71,10 @@
                     Country: {{ contact_form.country }}
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary mt-2" value="Continue"/>
+            <a href="{% url 'cart-index' %}" class="btn btn-warning mt-2">Go Back</a>
+            <div class="row">
+                <input type="submit" class="btn btn-primary mt-2" value="Proceed to payment"/>
+            </div>
         </form>
     </div>
     </div>

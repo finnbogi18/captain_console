@@ -1,86 +1,86 @@
 27 APR.
-- Atli: started working on interviews and user groups.
+- Atli: started working on interviews and user groups
 - Finnbogi: Started work on the wireframe.
 - Gísli: Started work on the requirement list.
-- Hákon: Started watching the course videos and setting up pycharm.
+- Hákon: Started watching the course videos and setting up pycharm
 
 28 APR.
-- Atli: finished preparing interviews and started writing explenations for all the chapters.
+- Atli: finished preparing interviews and started writing explenations for all the chapters
 - Finnbogi: Finished up the wireframe making it ready for user testing.
 - Gísli: Finished the requirement list and helped with the user groups.
 - Hákon: Created programming rules.
 
 29 APR.
-- Atli: took interviews and finished off the report.
+- Atli: took interviews and finished off the report
 - Finnbogi: Took an interview and updated the wireframe according to the feedback recieved.
 - Gísli: Set up the framework for the design report.
-- Hákon: Did the cover on the report and did interviews.
+- Hákon: Did the cover on the report and did interviews
 
 30 APR.
-- Atli: made state diagrams, prepared interviews.
+- Atli: made state diagrams, prepared interviews
 - Finnbogi: Finished work on the prototype.
-- Gísli: Made the navigation diagram.
-- Hákon: Created class diagrams for the design report.
+- Gísli: Made the navigation diagram
+- Hákon: Created class diagrams for the design report
 
 01 MAY.
-- Atli: took interviews and finished off the report.
+- Atli: took interviews and finished off the report
 - Finnbogi: Took an interview and worked on the design report.
-- Gísli: Took an interview.
-- Hákon: Took interview and finalized the report.
+- Gísli: Took an interview
+- Hákon: Took interview and finalized the report
 
 04 MAY.
 - Atli:
 - Finnbogi: Started working on setting up the github for the project and the django project.
-- Gísli: Started working on creating the apps and adding basic paths.
+- Gísli: Started working on creating the apps and adding basic paths
 - Hákon: Got github working and create a virtual environment in the same repository.
 
 05 MAY.
 - Atli: 
 - Finnbogi: Worked on the home page and implementing some basics views and navigation for the app.
-- Gísli: Started working on the profile and login pages.
+- Gísli: Started working on the profile and login pages
 - Hákon: Sadly did not do much else than helping the guys problem solving their work.
 
 06 MAY.
 - Atli: 
 - Finnbogi: Did some work on the basics of the app, linking stuff together in the navigation bar and added a footer.
-- Gísli: Continued working on the profile page and added a basic view of the search history.
+- Gísli: Continued working on the profile page and added a basic view of the search history
 - Hákon: I created a product page and inserted data so we can see some products in our store.
 
 07 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Started work on the cart.
 - Gísli: Added a searchhistory table to the database and bug fixes.
-- Hákon: Created a better search engine than google.
+- Hákon: Created a better search engine than google
 
 08 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Continued working on the cart, you can now add items to the cart.
 - Gísli: Finished working on the search history and fixing the search bar.
-- Hákon: Created categories filter.
+- Hákon: Created categories filter
 
 11 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Worked on the profile to fix some issues we were having.
 - Gísli: General fixes and added some style.
-- Hákon: Fixed search and filter and made it more pretty.
+- Hákon: Fixed search and filter and made it more pretty
 
 12 MAY.
 - Atli: 
-- Finnbogi: 
-- Gísli: added a click function on the searchhistory to go to that search and added google maps links in the footer.
-- Hákon: Fixed bug in updating profile and made order by simpler.
+- Finnbogi: Added the contact information step to the checkout phase.
+- Gísli: Added a click function on the searchhistory to go to that search and added google maps links in the footer.
+- Hákon: Fixed bug in updating profile and made order by simpler
 
 13 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Added the payment step into the checkout phase.
 - Gísli: Fixed the register form and added some style.
-- Hákon: Made on sale work and show your search result.
+- Hákon: Made on sale work and show your search result
 
 14 MAY.
 - Atli: 
-- Finnbogi: 
+- Finnbogi: Worked on fixing some issues we were having with the cart and did some css work on it.
 - Gísli: Made the order history View and url path added some more style.
-- Hákon: 
+- Hákon:
 
 15 MAY.
 - Atli: 

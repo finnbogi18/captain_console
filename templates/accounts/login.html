@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% load myfilters %}
     <div class="container">
-        <form method="post" class="form form-horizontal">
+        <form method="post" class="form form-horizontal shadow-border p-5 mt-5">
+            <h2>Log in</h2>
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" class="btn btn-primary" value="login"/>
+            Username: {{ form.username|addclass:'form-control' }}
+            Password: {{ form.password|addclass:'form-control' }}
+            <input type="submit" class="btn btn-primary mt-2" value="Login"/>
+            <a href="{% url 'accounts-register' %}" class="btn btn-primary mt-2">Sign up instead</a>
         </form>
     </div>
 

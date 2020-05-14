@@ -4,31 +4,53 @@
 }
 
 .bgimg {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/static/images/cpt_console.png");
-  min-height: 100%;
-  height: 1000px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("/static/images/cpt_console.png");
+    min-height: 100%;
+    height: 1000px;
     filter: contrast(1000%);
 }
 
 .bgimg:hover {
     animation: shake 0.5s;
-  animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
 
 .footer p {
@@ -47,7 +69,7 @@
     100% {
         background-size: 100% 3px;
     }
-    
+
 }
 
 @keyframes circle-around {
@@ -96,7 +118,7 @@
 }
 
 
-.product-img{
+.product-img {
     max-width: 200px;
     max-height: 200px;
     margin: 0 auto;
@@ -152,6 +174,7 @@
 .on-sale {
     color: red;
 }
+
 .same-size-button {
     height: 4rem !important;
     width: 8rem !important;
@@ -159,12 +182,12 @@
 
 .carousel-control-next:hover {
     transition: background-color 500ms;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-control-prev:hover {
     transition: background-color 500ms;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-inner {
@@ -175,4 +198,13 @@
 .carousel-item {
     max-width: 420px;
     max-height: 420px;
+}
+
+.shadow-border {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 95vh;
+}
+
+.center {
+    margin: 0 auto;
 }
