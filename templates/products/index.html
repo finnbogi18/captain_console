@@ -3,6 +3,7 @@
   <title>Store</title>
 {% endblock %}
 {% block content %}
+    <div class="shadow-border p-4 mt-4">
   <div>
     <h2>Crazy gaming products!!</h2>
     {% if searchstring != '' and searchstring != None %}
@@ -59,5 +60,7 @@
       {% endfor %}
     {% endif %}
   </div>
+
+    </div>
 
 {% endblock %}
