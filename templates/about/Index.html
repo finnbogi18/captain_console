@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% block title %}
-    <title>About us</title>
+  <title>About us</title>
 {% endblock %}
 {% block content %}
-    <h1>About us</h1>
-    <div class="d-flex flex-row">
-        <div>
-            <p>
-                A new retro gaming shop has emerged called Captain Console. The shop has one goal to
-                become the greatest, biggest and most recognized retro gaming shop out there! They sell
-                everything from ZX Spectrum to Gameboy.
-            </p>
-        </div>
-        <div>
-            <img src="/static/images/love.gif">
-        </div>
+
+  <div class="d-flex container shadow-border mt-5 p-5">
+    <div class="col">
+      <h1>About us</h1>
+    <div class="row">
+      <p class="">
+        A new retro gaming shop has emerged called Captain Console. The shop has one goal to
+        become the greatest, biggest and most recognized retro gaming shop out there! They sell
+        everything from ZX Spectrum to Gameboy.
+      </p>
+          </div>
+          </div>
+      <div class="col">
+        <img src="/static/images/love.gif">
+      </div>
     </div>
+
+  </div>
 
 {% endblock %}
